@@ -19662,8 +19662,9 @@
 	'use strict';
 
 	var React = __webpack_require__(1);
-	var CommentList = __webpack_require__(160);
-	var CommentForm = __webpack_require__(161);
+	var Header = __webpack_require__(160);
+	var Body = __webpack_require__(161);
+	var CommentForm = __webpack_require__(162);
 
 	var CommentBox = React.createClass({
 	  displayName: 'CommentBox',
@@ -19709,7 +19710,8 @@
 	    return React.createElement(
 	      'div',
 	      { className: 'commentBox' },
-	      React.createElement(CommentList, { data: this.state.data }),
+	      React.createElement(Header, { data: this.state.data }),
+	      React.createElement(Body, { data: this.state.data }),
 	      React.createElement(CommentForm, { data: this.state.data, onCommentSubmit: this.handleCommentSubmit })
 	    );
 	  }
@@ -19721,69 +19723,78 @@
 /* 160 */
 /***/ function(module, exports, __webpack_require__) {
 
-	'use strict';
+	"use strict";
 
 	var React = __webpack_require__(1);
-	var Comment = __webpack_require__(162);
 
-	var CommentList = React.createClass({
-	  displayName: 'CommentList',
+	var Header = React.createClass({
+	  displayName: "Header",
 
 	  render: function render() {
 
 	    var data = this.props.data || [];
 
-	    var commentNodes = data.map(function (comment, index) {
+	    var headerInfo = data.map(function (header, index) {
 
 	      var headerStyle = {
-	        backgroundImage: "url('" + comment.headerImage + "')",
-	        backgroundSize: "cover",
-	        height: "100px"
-	      };
-
-	      var titleStyle = {
-	        textAlign: "center",
-	        lineHeight: "100px",
-	        color: "white",
-	        textShadow: "3px 3px 5px navy"
-	      };
-
-	      var bodyStyle = {
-	        padding: "20px",
-	        fontFamily: "Georgia"
+	        backgroundImage: "url('" + header.headerImage + "')"
 	      };
 
 	      return React.createElement(
-	        'div',
-	        { key: index },
+	        "header",
+	        { style: headerStyle, key: index },
 	        React.createElement(
-	          'div',
-	          { style: headerStyle },
-	          React.createElement(
-	            'h1',
-	            { style: titleStyle },
-	            comment.title
-	          )
-	        ),
-	        React.createElement(
-	          'div',
-	          { style: bodyStyle },
-	          comment.body
+	          "h1",
+	          { className: "title" },
+	          header.title
 	        )
 	      );
 	    });
 
 	    return React.createElement(
-	      'div',
-	      { className: 'commentList' },
-	      commentNodes
+	      "div",
+	      { className: "header-div" },
+	      headerInfo
 	    );
 	  }
 	});
-	module.exports = CommentList;
+	module.exports = Header;
 
 /***/ },
 /* 161 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	var React = __webpack_require__(1);
+
+	var Body = React.createClass({
+	  displayName: "Body",
+
+	  render: function render() {
+
+	    var data = this.props.data || [];
+
+	    var bodyInfo = data.map(function (body, index) {
+
+	      return React.createElement(
+	        "div",
+	        { key: index },
+	        body.body
+	      );
+	    });
+
+	    return React.createElement(
+	      "div",
+	      { className: "body-div" },
+	      bodyInfo
+	    );
+	  }
+	});
+	module.exports = Body;
+
+/***/ },
+/* 162 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -19843,32 +19854,6 @@
 	});
 
 	module.exports = CommentForm;
-
-/***/ },
-/* 162 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-
-	var React = __webpack_require__(1);
-	var Comment = React.createClass({
-	  displayName: "Comment",
-
-	  render: function render() {
-	    return React.createElement(
-	      "div",
-	      { className: "comment" },
-	      React.createElement(
-	        "h2",
-	        { className: "commentAuthor" },
-	        this.props.author
-	      ),
-	      this.props.children
-	    );
-	  }
-	});
-
-	module.exports = Comment;
 
 /***/ }
 /******/ ]);

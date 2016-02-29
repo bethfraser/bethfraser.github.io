@@ -1,3 +1,7 @@
+body {
+  margin: 0;
+}
+
 input, textarea {
   display: block;
   margin: 10px;
@@ -7,4 +11,22 @@ input, textarea {
 textarea {
   height: 100px;
   width: 150px;
+}
+
+header {
+  background-size: cover;
+  height: 100px;
+}
+
+.title  {
+  padding-left: 50px;
+  line-height: 100px;
+  color: white;
+  text-shadow: 3px 3px 3px black;
+  margin: 0;
+}
+
+.body-div {
+  padding: 20px;
+  font-family: Georgia;
 }

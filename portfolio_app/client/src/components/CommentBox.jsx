@@ -1,5 +1,6 @@
 var React = require('react');
-var CommentList = require('./CommentList');
+var Header = require('./Header');
+var Body = require('./Body');
 var CommentForm = require('./CommentForm');
 
 var CommentBox = React.createClass({
@@ -43,7 +44,8 @@ var CommentBox = React.createClass({
   render: function() {
     return (
       <div className="commentBox">
-        <CommentList data={this.state.data} />
+        <Header data={this.state.data} />
+        <Body data={this.state.data} />
         <CommentForm data={this.state.data} onCommentSubmit={this.handleCommentSubmit} />
       </div>
     );

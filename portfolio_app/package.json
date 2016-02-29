@@ -4,7 +4,7 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "edit": "node server.js & cd client && webpack -w & cd ../pages_api && node server.js"
   },
   "keywords": [],
   "author": "",
