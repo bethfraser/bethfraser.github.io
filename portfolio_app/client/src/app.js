@@ -1,10 +1,10 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
-var CommentBox = require('./components/CommentBox.jsx');
+var Page = require('./components/Page.jsx');
 
 window.onload = function(){
   ReactDOM.render(
-    <CommentBox url="http://localhost:5000/api/homepage" />,
+    <Page url="http://localhost:5000/api/homepage" />,
     document.getElementById('app')
   );
 }

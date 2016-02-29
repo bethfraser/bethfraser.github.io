@@ -30,3 +30,7 @@ header {
   padding: 20px;
   font-family: Georgia;
 }
+
+button {
+  margin: 20px;
+}

@@ -48,10 +48,10 @@
 
 	var React = __webpack_require__(1);
 	var ReactDOM = __webpack_require__(158);
-	var CommentBox = __webpack_require__(159);
+	var Page = __webpack_require__(159);
 
 	window.onload = function () {
-	  ReactDOM.render(React.createElement(CommentBox, { url: 'http://localhost:5000/api/homepage' }), document.getElementById('app'));
+	  ReactDOM.render(React.createElement(Page, { url: 'http://localhost:5000/api/homepage' }), document.getElementById('app'));
 	};
 
 /***/ },
@@ -19666,8 +19666,8 @@
 	var Body = __webpack_require__(161);
 	var CommentForm = __webpack_require__(162);
 
-	var CommentBox = React.createClass({
-	  displayName: 'CommentBox',
+	var Page = React.createClass({
+	  displayName: 'Page',
 
 	  getInitialState: function getInitialState() {
 	    return { data: [] };
@@ -19712,12 +19712,12 @@
 	      { className: 'commentBox' },
 	      React.createElement(Header, { data: this.state.data }),
 	      React.createElement(Body, { data: this.state.data }),
-	      React.createElement(CommentForm, { data: this.state.data, onCommentSubmit: this.handleCommentSubmit })
+	      React.createElement(CommentForm, { url: this.props.url, onCommentSubmit: this.handleCommentSubmit })
 	    );
 	  }
 	});
 
-	module.exports = CommentBox;
+	module.exports = Page;
 
 /***/ },
 /* 160 */
@@ -19820,35 +19820,68 @@
 	    var title = this.state.title.trim();
 	    var body = this.state.body.trim();
 	    var headerImage = this.state.headerImage.trim();
-	    if (!title || !body) {
-	      return;
-	    }
-	    // TODO: send request to the server
 	    this.props.onCommentSubmit({ title: title, body: body, headerImage: headerImage });
+	  },
+	  componentDidMount: function componentDidMount() {
+	    var request = new XMLHttpRequest();
+	    request.open("GET", this.props.url);
+	    request.onload = function () {
+	      if (request.status === 200) {
+	        var receivedComments = JSON.parse(request.responseText);
+	        this.setState({ title: receivedComments[0].title, body: receivedComments[0].body, headerImage: receivedComments[0].headerImage });
+	      }
+	    }.bind(this);
+	    request.send(null);
+	  },
+
+	  loadEditForm: function loadEditForm() {
+	    var formDiv = this.refs.formDiv;
+	    if (formDiv.style.display == "none") {
+	      formDiv.style.display = "block";
+	    } else {
+	      formDiv.style.display = "none";
+	    }
 	  },
 	  render: function render() {
 
+	    var formStyle = {
+	      display: "none"
+	    };
+
 	    return React.createElement(
-	      'form',
-	      { className: 'commentForm', onSubmit: this.handleSubmit },
-	      React.createElement('input', {
-	        type: 'text',
-	        placeholder: 'Title',
-	        value: this.state.title,
-	        onChange: this.handleTitleChange
-	      }),
-	      React.createElement('input', {
-	        type: 'text',
-	        placeholder: 'Header Image',
-	        value: this.state.headerImage,
-	        onChange: this.handleImageChange
-	      }),
-	      React.createElement('textarea', {
-	        placeholder: 'Body text',
-	        value: this.state.body,
-	        onChange: this.handleBodyChange
-	      }),
-	      React.createElement('input', { type: 'submit', value: 'Post' })
+	      'div',
+	      null,
+	      React.createElement(
+	        'button',
+	        { onClick: this.loadEditForm },
+	        'Edit Page'
+	      ),
+	      React.createElement(
+	        'div',
+	        { ref: 'formDiv', style: formStyle },
+	        React.createElement(
+	          'form',
+	          { className: 'commentForm', onSubmit: this.handleSubmit },
+	          React.createElement('input', {
+	            type: 'text',
+	            placeholder: 'Title',
+	            value: this.state.title,
+	            onChange: this.handleTitleChange
+	          }),
+	          React.createElement('input', {
+	            type: 'text',
+	            placeholder: 'Header Image',
+	            value: this.state.headerImage,
+	            onChange: this.handleImageChange
+	          }),
+	          React.createElement('textarea', {
+	            placeholder: 'Body text',
+	            value: this.state.body,
+	            onChange: this.handleBodyChange
+	          }),
+	          React.createElement('input', { type: 'submit', value: 'Save' })
+	        )
+	      )
 	    );
 	  }
 	});

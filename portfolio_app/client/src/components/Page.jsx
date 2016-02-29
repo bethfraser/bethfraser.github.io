@@ -3,7 +3,7 @@ var Header = require('./Header');
 var Body = require('./Body');
 var CommentForm = require('./CommentForm');
 
-var CommentBox = React.createClass({
+var Page = React.createClass({
   getInitialState: function() {
     return {data: [ ]};
   },
@@ -46,10 +46,10 @@ var CommentBox = React.createClass({
       <div className="commentBox">
         <Header data={this.state.data} />
         <Body data={this.state.data} />
-        <CommentForm data={this.state.data} onCommentSubmit={this.handleCommentSubmit} />
+        <CommentForm url={this.props.url} onCommentSubmit={this.handleCommentSubmit} />
       </div>
     );
   }
 });
 
-module.exports = CommentBox;
+module.exports = Page;
