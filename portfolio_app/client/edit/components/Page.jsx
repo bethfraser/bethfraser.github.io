@@ -46,6 +46,7 @@ var Page = React.createClass({
       <div className="commentBox">
         <Header data={this.state.data} />
         <Body data={this.state.data} />
+        <CommentForm url={this.props.url} onCommentSubmit={this.handleCommentSubmit} />
       </div>
     );
   }

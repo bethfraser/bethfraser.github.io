@@ -19711,7 +19711,8 @@
 	      'div',
 	      { className: 'commentBox' },
 	      React.createElement(Header, { data: this.state.data }),
-	      React.createElement(Body, { data: this.state.data })
+	      React.createElement(Body, { data: this.state.data }),
+	      React.createElement(CommentForm, { url: this.props.url, onCommentSubmit: this.handleCommentSubmit })
 	    );
 	  }
 	});

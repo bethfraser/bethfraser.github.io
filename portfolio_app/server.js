@@ -4,6 +4,10 @@ var path = require('path');
 var fs = require('fs');
 var bodyParser = require('body-parser');
 
+app.get('/edit', function (req, res) {
+  res.sendFile(path.join(__dirname + '/client/build/edit.html'));
+});
+
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname + '/client/build/index.html'));
 });
