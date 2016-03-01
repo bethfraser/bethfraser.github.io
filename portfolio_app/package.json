@@ -4,7 +4,12 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "node server.js & cd client && webpack -w & cd client/edit/ && webpack -w & cd ../pages_api && node server.js"
+    "dev": "npm run main-serv & npm run api-serv & npm run webpack-edit & npm run webpack-main & npm run open-edit & wait",
+    "main-serv": "node server.js",
+    "webpack-edit": "cd client/edit/ && webpack -w",
+    "webpack-main": "cd client && webpack",
+    "api-serv": "cd ../pages_api && node server.js",
+    "open-edit": "open http://localhost:3000/edit"
 
   },
   "keywords": [],

@@ -4,7 +4,7 @@ body {
 
 input, textarea, label {
   display: block;
-  margin: 10px;
+  margin: 0 10px 10px 10px;
   padding: 5px;
   width: 90%;
 }
@@ -12,6 +12,12 @@ input, textarea, label {
 label {
   font-family: Tahoma;
   font-size: 0.8em;
+}
+
+form {
+  background-color: white;
+  width: 90%;
+  margin: 0 auto;
 }
 
 textarea {
@@ -36,14 +42,14 @@ header {
   font-family: Georgia;
 }
 
-.comment-div {
+.form-div {
   display: none;
   position: absolute;
   right: 0;
   top: 40px;
   width: 40%;
   height: 100%;
-  background-color: rgba(255, 255, 255, 0.5);
+  background-color: rgba(255, 255, 255, 0.8);
   border-left: 3px solid grey;
 }
 
@@ -52,6 +58,11 @@ header {
   height: 40px;
   background-color: grey;
   text-align: right;
+}
+
+.edit-nav a {
+  color: white;
+  font-family: Tahoma;
 }
 
 button {

@@ -8,8 +8,8 @@ var Body = React.createClass({
     var bodyInfo = data.map(function(body,index){
 
       return (
-        <div key={index}>
-          {body.body}
+        <div dangerouslySetInnerHTML={{__html: body.body}} key={index}>
+          
           </div>
       );
     });

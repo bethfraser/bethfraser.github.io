@@ -49,9 +49,10 @@ var EditForm = React.createClass({
     return(
       <div>
       <div className="edit-nav">
+      <a href="/">Preview</a>
       <button onClick={this.loadEditForm}>Edit Page</button>
       </div>
-      <div className="comment-div" ref="formDiv" style={formStyle}>
+      <div className="form-div" ref="formDiv" style={formStyle}>
       <h3>Edit The Page</h3>
       <form className="commentForm" onSubmit={this.handleSubmit}>
       <label>Page Title</label>

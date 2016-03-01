@@ -19664,7 +19664,7 @@
 	var React = __webpack_require__(1);
 	var Header = __webpack_require__(160);
 	var Body = __webpack_require__(161);
-	var EditForm = __webpack_require__(163);
+	var EditForm = __webpack_require__(162);
 
 	var Page = React.createClass({
 	  displayName: 'Page',
@@ -19777,11 +19777,7 @@
 
 	    var bodyInfo = data.map(function (body, index) {
 
-	      return React.createElement(
-	        "div",
-	        { key: index },
-	        body.body
-	      );
+	      return React.createElement("div", { dangerouslySetInnerHTML: { __html: body.body }, key: index });
 	    });
 
 	    return React.createElement(
@@ -19794,8 +19790,7 @@
 	module.exports = Body;
 
 /***/ },
-/* 162 */,
-/* 163 */
+/* 162 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -19856,6 +19851,11 @@
 	        'div',
 	        { className: 'edit-nav' },
 	        React.createElement(
+	          'a',
+	          { href: '/' },
+	          'Preview'
+	        ),
+	        React.createElement(
 	          'button',
 	          { onClick: this.loadEditForm },
 	          'Edit Page'
@@ -19863,7 +19863,7 @@
 	      ),
 	      React.createElement(
 	        'div',
-	        { className: 'comment-div', ref: 'formDiv', style: formStyle },
+	        { className: 'form-div', ref: 'formDiv', style: formStyle },
 	        React.createElement(
 	          'h3',
 	          null,
