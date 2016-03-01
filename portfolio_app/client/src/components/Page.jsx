@@ -2,6 +2,7 @@ var React = require('react');
 var Header = require('./Header');
 var Body = require('./Body');
 var CommentForm = require('./CommentForm');
+var data = require('json!../../../../pages_api/homepage.json')
 
 var Page = React.createClass({
   getInitialState: function() {
@@ -9,15 +10,7 @@ var Page = React.createClass({
   },
 
   fetchComments: function(){
-    var request = new XMLHttpRequest();
-    request.open("GET", this.props.url);
-    request.onload = function(){
-      if(request.status === 200){
-        var receivedComments = JSON.parse(request.responseText);
-        this.setState({data: receivedComments});
-      }
-    }.bind(this);
-    request.send(null);
+    this.setState({data: data})
   },
 
   componentDidMount: function(){
@@ -25,22 +18,6 @@ var Page = React.createClass({
     setInterval(this.fetchComments, 10000);
   },
 
-  handleCommentSubmit: function(comment) {
-    comment.id = Date.now();
-    var newComments = [comment];
-    this.setState({data: newComments});
-
-    var request = new XMLHttpRequest();
-    request.open("POST", this.props.url);
-    request.setRequestHeader("Content-Type", "application/json");
-    request.onload = function(){
-      if(request.status === 200){
-        var data = JSON.parse(request.responseText);
-        this.setState({data: data});
-      }
-    }.bind(this);
-    request.send(JSON.stringify(comment));
-  },
   render: function() {
     return (
       <div className="commentBox">
