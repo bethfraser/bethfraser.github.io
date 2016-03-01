@@ -19870,10 +19870,10 @@
 
 	module.exports = [
 		{
-			"id": 1456834499007,
-			"title": "This is my title",
+			"id": 1456842855913,
+			"title": "Title goes here",
 			"body": "Gary is great",
-			"headerImage": "http://adicts.wapsite.me/1con/header/header_1.png"
+			"headerImage": "http://mangalorevisit.in/wp-content/themes/twentythirteen/images/headers/circle.png"
 		}
 	];
 

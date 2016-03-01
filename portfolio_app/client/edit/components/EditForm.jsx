@@ -1,5 +1,5 @@
 var React = require('react');
-var CommentForm = React.createClass({
+var EditForm = React.createClass({
   getInitialState: function() {
     return {title: '', body: '', headerImage: '' };
   },
@@ -17,7 +17,7 @@ var CommentForm = React.createClass({
     var title = this.state.title.trim();
     var body = this.state.body.trim();
     var headerImage = this.state.headerImage.trim();
-    this.props.onCommentSubmit({title: title, body: body, headerImage: headerImage});
+    this.props.onSubmit({title: title, body: body, headerImage: headerImage});
   },
   componentDidMount: function(){
     var request = new XMLHttpRequest();
@@ -48,21 +48,27 @@ var CommentForm = React.createClass({
 
     return(
       <div>
+      <div className="edit-nav">
       <button onClick={this.loadEditForm}>Edit Page</button>
-      <div ref="formDiv" style={formStyle}>
+      </div>
+      <div className="comment-div" ref="formDiv" style={formStyle}>
+      <h3>Edit The Page</h3>
       <form className="commentForm" onSubmit={this.handleSubmit}>
+      <label>Page Title</label>
       <input
       type="text"
       placeholder="Title"
       value={this.state.title}
       onChange={this.handleTitleChange}
       />
+      <label>Header Image</label>
       <input
       type="text"
       placeholder="Header Image"
       value={this.state.headerImage}
       onChange={this.handleImageChange}
       />
+      <label>Page Body</label>
       <textarea
       placeholder="Body text"
       value={this.state.body}
@@ -75,4 +81,4 @@ var CommentForm = React.createClass({
   }
 });
 
-module.exports = CommentForm;
+module.exports = EditForm;

@@ -19664,7 +19664,7 @@
 	var React = __webpack_require__(1);
 	var Header = __webpack_require__(160);
 	var Body = __webpack_require__(161);
-	var CommentForm = __webpack_require__(162);
+	var EditForm = __webpack_require__(163);
 
 	var Page = React.createClass({
 	  displayName: 'Page',
@@ -19710,9 +19710,9 @@
 	    return React.createElement(
 	      'div',
 	      { className: 'commentBox' },
+	      React.createElement(EditForm, { url: this.props.url, onSubmit: this.handleCommentSubmit }),
 	      React.createElement(Header, { data: this.state.data }),
-	      React.createElement(Body, { data: this.state.data }),
-	      React.createElement(CommentForm, { url: this.props.url, onCommentSubmit: this.handleCommentSubmit })
+	      React.createElement(Body, { data: this.state.data })
 	    );
 	  }
 	});
@@ -19794,14 +19794,15 @@
 	module.exports = Body;
 
 /***/ },
-/* 162 */
+/* 162 */,
+/* 163 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
 	var React = __webpack_require__(1);
-	var CommentForm = React.createClass({
-	  displayName: 'CommentForm',
+	var EditForm = React.createClass({
+	  displayName: 'EditForm',
 
 	  getInitialState: function getInitialState() {
 	    return { title: '', body: '', headerImage: '' };
@@ -19820,7 +19821,7 @@
 	    var title = this.state.title.trim();
 	    var body = this.state.body.trim();
 	    var headerImage = this.state.headerImage.trim();
-	    this.props.onCommentSubmit({ title: title, body: body, headerImage: headerImage });
+	    this.props.onSubmit({ title: title, body: body, headerImage: headerImage });
 	  },
 	  componentDidMount: function componentDidMount() {
 	    var request = new XMLHttpRequest();
@@ -19852,28 +19853,52 @@
 	      'div',
 	      null,
 	      React.createElement(
-	        'button',
-	        { onClick: this.loadEditForm },
-	        'Edit Page'
+	        'div',
+	        { className: 'edit-nav' },
+	        React.createElement(
+	          'button',
+	          { onClick: this.loadEditForm },
+	          'Edit Page'
+	        )
 	      ),
 	      React.createElement(
 	        'div',
-	        { ref: 'formDiv', style: formStyle },
+	        { className: 'comment-div', ref: 'formDiv', style: formStyle },
+	        React.createElement(
+	          'h3',
+	          null,
+	          'Edit The Page'
+	        ),
 	        React.createElement(
 	          'form',
 	          { className: 'commentForm', onSubmit: this.handleSubmit },
+	          React.createElement(
+	            'label',
+	            null,
+	            'Page Title'
+	          ),
 	          React.createElement('input', {
 	            type: 'text',
 	            placeholder: 'Title',
 	            value: this.state.title,
 	            onChange: this.handleTitleChange
 	          }),
+	          React.createElement(
+	            'label',
+	            null,
+	            'Header Image'
+	          ),
 	          React.createElement('input', {
 	            type: 'text',
 	            placeholder: 'Header Image',
 	            value: this.state.headerImage,
 	            onChange: this.handleImageChange
 	          }),
+	          React.createElement(
+	            'label',
+	            null,
+	            'Page Body'
+	          ),
 	          React.createElement('textarea', {
 	            placeholder: 'Body text',
 	            value: this.state.body,
@@ -19886,7 +19911,7 @@
 	  }
 	});
 
-	module.exports = CommentForm;
+	module.exports = EditForm;
 
 /***/ }
 /******/ ]);

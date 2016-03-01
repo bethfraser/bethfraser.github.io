@@ -1,7 +1,7 @@
 var React = require('react');
 var Header = require('./Header');
 var Body = require('./Body');
-var CommentForm = require('./CommentForm');
+var EditForm = require('./EditForm');
 
 var Page = React.createClass({
   getInitialState: function() {
@@ -44,9 +44,9 @@ var Page = React.createClass({
   render: function() {
     return (
       <div className="commentBox">
+      <EditForm url={this.props.url} onSubmit={this.handleCommentSubmit} />
         <Header data={this.state.data} />
         <Body data={this.state.data} />
-        <CommentForm url={this.props.url} onCommentSubmit={this.handleCommentSubmit} />
       </div>
     );
   }
