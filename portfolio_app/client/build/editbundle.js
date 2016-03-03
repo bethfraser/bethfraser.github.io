@@ -19664,7 +19664,7 @@
 	var React = __webpack_require__(1);
 	var Header = __webpack_require__(160);
 	var Body = __webpack_require__(161);
-	var EditForm = __webpack_require__(163);
+	var EditForm = __webpack_require__(162);
 
 	var Page = React.createClass({
 	  displayName: 'Page',
@@ -19767,7 +19767,7 @@
 	'use strict';
 
 	var React = __webpack_require__(1);
-	var marked = __webpack_require__(162);
+	var marked = __webpack_require__(163);
 
 	var Body = React.createClass({
 	  displayName: 'Body',
@@ -19794,6 +19794,136 @@
 
 /***/ },
 /* 162 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var React = __webpack_require__(1);
+	var EditForm = React.createClass({
+	  displayName: 'EditForm',
+
+	  getInitialState: function getInitialState() {
+	    return { title: '', body: '', headerImage: '' };
+	  },
+	  handleTitleChange: function handleTitleChange(e) {
+	    this.setState({ title: e.target.value });
+	  },
+	  handleBodyChange: function handleBodyChange(e) {
+	    this.setState({ body: e.target.value });
+	  },
+	  handleImageChange: function handleImageChange(e) {
+	    this.setState({ headerImage: e.target.value });
+	  },
+	  handleSubmit: function handleSubmit(e) {
+	    e.preventDefault();
+	    var title = this.state.title.trim();
+	    var body = this.state.body.trim();
+	    var headerImage = this.state.headerImage.trim();
+	    this.props.onSubmit({ title: title, body: body, headerImage: headerImage });
+	  },
+	  componentDidMount: function componentDidMount() {
+	    var request = new XMLHttpRequest();
+	    request.open("GET", this.props.url);
+	    request.onload = function () {
+	      if (request.status === 200) {
+	        var receivedComments = JSON.parse(request.responseText);
+	        this.setState({ title: receivedComments[0].title, body: receivedComments[0].body, headerImage: receivedComments[0].headerImage });
+	      }
+	    }.bind(this);
+	    request.send(null);
+	  },
+
+	  loadEditForm: function loadEditForm() {
+	    var formDiv = this.refs.formDiv;
+	    if (formDiv.style.display == "none") {
+	      formDiv.style.display = "block";
+	    } else {
+	      formDiv.style.display = "none";
+	    }
+	  },
+	  render: function render() {
+
+	    var formStyle = {
+	      display: "none"
+	    };
+
+	    return React.createElement(
+	      'div',
+	      null,
+	      React.createElement(
+	        'div',
+	        { className: 'edit-nav' },
+	        React.createElement(
+	          'a',
+	          { href: '/' },
+	          'Preview'
+	        ),
+	        React.createElement(
+	          'button',
+	          { onClick: this.loadEditForm },
+	          'Edit Page'
+	        )
+	      ),
+	      React.createElement(
+	        'div',
+	        { className: 'form-div', ref: 'formDiv', style: formStyle },
+	        React.createElement(
+	          'h3',
+	          null,
+	          'Edit The Page'
+	        ),
+	        React.createElement(
+	          'form',
+	          { className: 'commentForm', onSubmit: this.handleSubmit },
+	          React.createElement(
+	            'label',
+	            null,
+	            'Page Title'
+	          ),
+	          React.createElement('input', {
+	            type: 'text',
+	            placeholder: 'Title',
+	            value: this.state.title,
+	            onChange: this.handleTitleChange
+	          }),
+	          React.createElement(
+	            'label',
+	            null,
+	            'Header Image'
+	          ),
+	          React.createElement('input', {
+	            type: 'text',
+	            placeholder: 'Header Image',
+	            value: this.state.headerImage,
+	            onChange: this.handleImageChange
+	          }),
+	          React.createElement(
+	            'label',
+	            null,
+	            'Page Body (You can use ',
+	            React.createElement(
+	              'a',
+	              { href: 'http://chibicode.github.io/markdown-toolbar-cheatsheet/', target: 'new' },
+	              'Markdown'
+	            ),
+	            ' or HTML in this section)'
+	          ),
+	          React.createElement('textarea', {
+	            placeholder: 'Body text',
+	            value: this.state.body,
+	            onChange: this.handleBodyChange
+	          }),
+	          React.createElement('input', { type: 'submit', value: 'Save' })
+	        )
+	      )
+	    );
+	  }
+	});
+
+	module.exports = EditForm;
+
+/***/ },
+/* 163 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(global) {/**
@@ -21083,136 +21213,6 @@
 	}());
 
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
-
-/***/ },
-/* 163 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	var React = __webpack_require__(1);
-	var EditForm = React.createClass({
-	  displayName: 'EditForm',
-
-	  getInitialState: function getInitialState() {
-	    return { title: '', body: '', headerImage: '' };
-	  },
-	  handleTitleChange: function handleTitleChange(e) {
-	    this.setState({ title: e.target.value });
-	  },
-	  handleBodyChange: function handleBodyChange(e) {
-	    this.setState({ body: e.target.value });
-	  },
-	  handleImageChange: function handleImageChange(e) {
-	    this.setState({ headerImage: e.target.value });
-	  },
-	  handleSubmit: function handleSubmit(e) {
-	    e.preventDefault();
-	    var title = this.state.title.trim();
-	    var body = this.state.body.trim();
-	    var headerImage = this.state.headerImage.trim();
-	    this.props.onSubmit({ title: title, body: body, headerImage: headerImage });
-	  },
-	  componentDidMount: function componentDidMount() {
-	    var request = new XMLHttpRequest();
-	    request.open("GET", this.props.url);
-	    request.onload = function () {
-	      if (request.status === 200) {
-	        var receivedComments = JSON.parse(request.responseText);
-	        this.setState({ title: receivedComments[0].title, body: receivedComments[0].body, headerImage: receivedComments[0].headerImage });
-	      }
-	    }.bind(this);
-	    request.send(null);
-	  },
-
-	  loadEditForm: function loadEditForm() {
-	    var formDiv = this.refs.formDiv;
-	    if (formDiv.style.display == "none") {
-	      formDiv.style.display = "block";
-	    } else {
-	      formDiv.style.display = "none";
-	    }
-	  },
-	  render: function render() {
-
-	    var formStyle = {
-	      display: "none"
-	    };
-
-	    return React.createElement(
-	      'div',
-	      null,
-	      React.createElement(
-	        'div',
-	        { className: 'edit-nav' },
-	        React.createElement(
-	          'a',
-	          { href: '/' },
-	          'Preview'
-	        ),
-	        React.createElement(
-	          'button',
-	          { onClick: this.loadEditForm },
-	          'Edit Page'
-	        )
-	      ),
-	      React.createElement(
-	        'div',
-	        { className: 'form-div', ref: 'formDiv', style: formStyle },
-	        React.createElement(
-	          'h3',
-	          null,
-	          'Edit The Page'
-	        ),
-	        React.createElement(
-	          'form',
-	          { className: 'commentForm', onSubmit: this.handleSubmit },
-	          React.createElement(
-	            'label',
-	            null,
-	            'Page Title'
-	          ),
-	          React.createElement('input', {
-	            type: 'text',
-	            placeholder: 'Title',
-	            value: this.state.title,
-	            onChange: this.handleTitleChange
-	          }),
-	          React.createElement(
-	            'label',
-	            null,
-	            'Header Image'
-	          ),
-	          React.createElement('input', {
-	            type: 'text',
-	            placeholder: 'Header Image',
-	            value: this.state.headerImage,
-	            onChange: this.handleImageChange
-	          }),
-	          React.createElement(
-	            'label',
-	            null,
-	            'Page Body (You can use ',
-	            React.createElement(
-	              'a',
-	              { href: 'http://chibicode.github.io/markdown-toolbar-cheatsheet/', target: 'new' },
-	              'Markdown'
-	            ),
-	            ' or HTML in this section)'
-	          ),
-	          React.createElement('textarea', {
-	            placeholder: 'Body text',
-	            value: this.state.body,
-	            onChange: this.handleBodyChange
-	          }),
-	          React.createElement('input', { type: 'submit', value: 'Save' })
-	        )
-	      )
-	    );
-	  }
-	});
-
-	module.exports = EditForm;
 
 /***/ }
 /******/ ]);
