@@ -8,7 +8,7 @@ var Header = React.createClass({
     var headerInfo = data.map(function(header,index){
 
       var headerStyle = {
-      backgroundImage: "url('" + header.headerImage + "')"
+        backgroundImage: "linear-gradient(to top, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.4)), linear-gradient(to top, rgba(25, 160, 195, 0.5), rgba(25, 160, 195, 0.5)), url(" + header.headerImage + ")"
       }
 
       return (

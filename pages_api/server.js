@@ -35,6 +35,7 @@ app.post('/api/homepage', function(req, res){
     var newHomepage = [{
       id: Date.now(),
       title: req.body.title,
+      subtitle: req.body.subtitle,
       body: req.body.body,
       headerImage: req.body.headerImage
     }

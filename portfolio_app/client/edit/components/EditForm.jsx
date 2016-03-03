@@ -1,10 +1,13 @@
 var React = require('react');
 var EditForm = React.createClass({
   getInitialState: function() {
-    return {title: '', body: '', headerImage: '' };
+    return {title: '', subtitle: '', body: '', headerImage: '' };
   },
   handleTitleChange: function(e) {
     this.setState({title: e.target.value});
+  },
+  handleSubtitleChange: function(e) {
+    this.setState({subtitle: e.target.value});
   },
   handleBodyChange: function(e) {
     this.setState({body: e.target.value});
@@ -15,9 +18,10 @@ var EditForm = React.createClass({
   handleSubmit: function(e) {
     e.preventDefault();
     var title = this.state.title.trim();
+    var subtitle = this.state.subtitle.trim();
     var body = this.state.body.trim();
     var headerImage = this.state.headerImage.trim();
-    this.props.onSubmit({title: title, body: body, headerImage: headerImage});
+    this.props.onSubmit({title: title, subtitle: subtitle, body: body, headerImage: headerImage});
   },
   componentDidMount: function(){
     var request = new XMLHttpRequest();
@@ -25,7 +29,7 @@ var EditForm = React.createClass({
     request.onload = function(){
       if(request.status === 200){
         var receivedComments = JSON.parse(request.responseText);
-        this.setState({title: receivedComments[0].title, body: receivedComments[0].body, headerImage: receivedComments[0].headerImage});
+        this.setState({title: receivedComments[0].title, subtitle: receivedComments[0].subtitle, body: receivedComments[0].body, headerImage: receivedComments[0].headerImage});
       }
     }.bind(this);
     request.send(null);
@@ -61,6 +65,13 @@ var EditForm = React.createClass({
       placeholder="Title"
       value={this.state.title}
       onChange={this.handleTitleChange}
+      />
+      <label>Page Subitle</label>
+      <input
+      type="text"
+      placeholder="Subtitle"
+      value={this.state.subtitle}
+      onChange={this.handleSubtitleChange}
       />
       <label>Header Image</label>
       <input

@@ -1,5 +1,6 @@
 body {
   margin: 0;
+  font-family: Tahoma;
 }
 
 input, textarea, label {
@@ -26,20 +27,33 @@ textarea {
 
 header {
   background-size: cover;
-  height: 100px;
+  height: 100%;
+}
+
+.header-div {
+  height: 70vh;
+  text-align: center;
 }
 
 .title  {
-  padding-left: 50px;
-  line-height: 100px;
+  height: 100%;
+  font-family: "Helvetica";
+  text-transform: uppercase;
   color: white;
-  text-shadow: 3px 3px 10px black;
   margin: 0;
+  padding: 0;
+}
+
+.title h1 {
+  margin: 0;
+  line-height: 70vh;
 }
 
 .body-div {
   padding: 20px;
-  font-family: Georgia;
+  line-height: 2em;
+  width: 80%;
+  margin: 0 auto;
 }
 
 .form-div {
