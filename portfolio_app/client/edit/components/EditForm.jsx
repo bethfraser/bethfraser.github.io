@@ -69,7 +69,7 @@ var EditForm = React.createClass({
       value={this.state.headerImage}
       onChange={this.handleImageChange}
       />
-      <label>Page Body</label>
+      <label>Page Body (You can use <a href="http://chibicode.github.io/markdown-toolbar-cheatsheet/" target="new">Markdown</a> or HTML in this section)</label>
       <textarea
       placeholder="Body text"
       value={this.state.body}

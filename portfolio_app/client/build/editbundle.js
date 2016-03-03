@@ -21192,7 +21192,13 @@
 	          React.createElement(
 	            'label',
 	            null,
-	            'Page Body'
+	            'Page Body (You can use ',
+	            React.createElement(
+	              'a',
+	              { href: 'http://chibicode.github.io/markdown-toolbar-cheatsheet/', target: 'new' },
+	              'Markdown'
+	            ),
+	            ' or HTML in this section)'
 	          ),
 	          React.createElement('textarea', {
 	            placeholder: 'Body text',
