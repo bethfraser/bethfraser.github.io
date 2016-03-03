@@ -42,12 +42,9 @@ header {
   color: white;
   margin: 0;
   padding: 0;
-}
-
-.title h1 {
-  margin: 0;
   line-height: 70vh;
 }
+
 
 .body-div {
   padding: 20px;
