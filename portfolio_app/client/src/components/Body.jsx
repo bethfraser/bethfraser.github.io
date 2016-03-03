@@ -1,4 +1,5 @@
 var React = require('react');
+var marked = require('marked');
 
 var Body = React.createClass({
   render: function() {
@@ -7,8 +8,10 @@ var Body = React.createClass({
 
     var bodyInfo = data.map(function(body,index){
 
+      var bodyHTML = marked(body.body.toString(), {sanitize: false});
+
       return (
-        <div dangerouslySetInnerHTML={{__html: body.body}} key={index}>
+        <div dangerouslySetInnerHTML={{__html: bodyHTML}} key={index}>
           
           </div>
       );
