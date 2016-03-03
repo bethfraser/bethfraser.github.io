@@ -19713,7 +19713,7 @@
 	    var headerInfo = data.map(function (header, index) {
 
 	      var headerStyle = {
-	        backgroundImage: "url('" + header.headerImage + "')"
+	        backgroundImage: "linear-gradient(to top, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.4)), linear-gradient(to top, rgba(25, 160, 195, 0.5), rgba(25, 160, 195, 0.5)), url(" + header.headerImage + ")"
 	      };
 
 	      return React.createElement(
@@ -21161,10 +21161,10 @@
 
 	module.exports = [
 		{
-			"id": 1457008793138,
+			"id": 1457011694198,
 			"title": "Beth Fraser",
 			"body": "**Welcome to my website**! My name's Beth and I'm a student at CodeClan in Edinburgh. This is a place for me to test out what I've learned and show off my new skills in HTML and CSS.\n<br><br>\nI've been living in Edinburgh for two years, and love the city. I'm originally from Northumberland, just south of the border. I'm really enjoying coding so far - as well as HTML and CSS I've started on some simple Ruby. Click on the links above to find out more about my interests or to get in touch.\n\n<img src=\"http://icons.iconarchive.com/icons/hopstarter/superhero-avatar/256/Avengers-Black-Widow-icon.png\" height=\"150px\">",
-			"headerImage": "http://mangalorevisit.in/wp-content/themes/twentythirteen/images/headers/circle.png"
+			"headerImage": "https://s3.amazonaws.com/StartupStockPhotos/uploads/42.jpg"
 		}
 	];
 
