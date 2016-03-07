@@ -13,7 +13,9 @@ var Header = React.createClass({
 
       return (
         <header style={headerStyle} key={index}>
-        <h1 className="title">{header.title}</h1>
+        <div className="title">
+        <h1>{header.title}</h1>
+        </div>
         </header>
       );
     });
