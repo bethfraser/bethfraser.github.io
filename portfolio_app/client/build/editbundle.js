@@ -19665,6 +19665,7 @@
 	var Header = __webpack_require__(160);
 	var Body = __webpack_require__(161);
 	var Contact = __webpack_require__(163);
+	var Nav = __webpack_require__(165);
 	var EditForm = __webpack_require__(164);
 
 	var Page = React.createClass({
@@ -19712,6 +19713,7 @@
 	      'div',
 	      { className: 'commentBox' },
 	      React.createElement(EditForm, { url: this.props.url, onSubmit: this.handleCommentSubmit }),
+	      React.createElement(Nav, null),
 	      React.createElement(Header, { data: this.state.data }),
 	      React.createElement(Body, { data: this.state.data }),
 	      React.createElement(Contact, { data: this.state.data })
@@ -21113,7 +21115,7 @@
 	      return React.createElement(
 	        "a",
 	        { href: address },
-	        React.createElement("img", { src: imageURL, width: "30px" })
+	        React.createElement("img", { src: imageURL, width: "40px" })
 	      );
 	    }
 	  },
@@ -21129,11 +21131,16 @@
 	        React.createElement(
 	          "p",
 	          null,
+	          React.createElement("a", { name: "contact" }),
 	          dataItem.contactInfo
 	        ),
-	        this.makeButton("facebookURL", "https://image.freepik.com/free-icon/facebook-logo_318-49940.png"),
-	        this.makeButton("twitterURL", "https://image.freepik.com/free-icon/twitter-bird-in-a-rounded-square_318-41054.png"),
-	        this.makeButton("email", "http://soligorsk.pma.by/wp-content/uploads/2011/07/email-dog-icon.png")
+	        React.createElement(
+	          "p",
+	          null,
+	          this.makeButton("facebookURL", "https://image.freepik.com/free-icon/facebook-logo_318-49940.png"),
+	          this.makeButton("twitterURL", "https://image.freepik.com/free-icon/twitter-bird-in-a-rounded-square_318-41054.png"),
+	          this.makeButton("email", "http://soligorsk.pma.by/wp-content/uploads/2011/07/email-dog-icon.png")
+	        )
 	      );
 	    }.bind(this));
 
@@ -21341,6 +21348,43 @@
 	});
 
 	module.exports = EditForm;
+
+/***/ },
+/* 165 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	var React = __webpack_require__(1);
+
+	var Nav = React.createClass({
+	  displayName: "Nav",
+
+
+	  render: function render() {
+
+	    return React.createElement(
+	      "div",
+	      { className: "nav" },
+	      "Navigation",
+	      React.createElement(
+	        "ul",
+	        null,
+	        React.createElement(
+	          "li",
+	          null,
+	          React.createElement(
+	            "a",
+	            { href: "#contact" },
+	            "Contact"
+	          )
+	        )
+	      )
+	    );
+	  }
+	});
+
+	module.exports = Nav;
 
 /***/ }
 /******/ ]);

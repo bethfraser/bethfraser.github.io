@@ -19664,8 +19664,9 @@
 	var React = __webpack_require__(1);
 	var Header = __webpack_require__(160);
 	var Body = __webpack_require__(161);
-	var Contact = __webpack_require__(164);
-	var data = __webpack_require__(163);
+	var Contact = __webpack_require__(163);
+	var Nav = __webpack_require__(165);
+	var data = __webpack_require__(164);
 
 	var Page = React.createClass({
 	  displayName: 'Page',
@@ -19687,6 +19688,7 @@
 	    return React.createElement(
 	      'div',
 	      { className: 'commentBox' },
+	      React.createElement(Nav, null),
 	      React.createElement(Header, { data: this.state.data }),
 	      React.createElement(Body, { data: this.state.data }),
 	      React.createElement(Contact, { data: this.state.data })
@@ -21067,23 +21069,6 @@
 
 /***/ },
 /* 163 */
-/***/ function(module, exports) {
-
-	module.exports = [
-		{
-			"id": 1457369859655,
-			"title": "My name is Beth and I'm a software developer living in Edinburgh.",
-			"body": "**Welcome to my website**! My name's Beth and I'm a student at CodeClan in Edinburgh. This is a place for me to test out what I've learned and show off my new skills in HTML and CSS.\n<br><br>\nI've been living in Edinburgh for two years, and love the city. I'm originally from Northumberland, just south of the border. I'm really enjoying coding so far - as well as HTML and CSS I've started on some simple Ruby. Click on the links above to find out more about my interests or to get in touch.",
-			"headerImage": "https://s3.amazonaws.com/StartupStockPhotos/uploads/42.jpg",
-			"contactInfo": "Get in touch - email is the easiest, or @ me on Twitter.",
-			"facebookURL": "http://www.facebook.com/",
-			"twitterURL": "http://www.twitter.com/edinbeth",
-			"email": "bethanyfraser@live.co.uk"
-		}
-	];
-
-/***/ },
-/* 164 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -21105,7 +21090,7 @@
 	      return React.createElement(
 	        "a",
 	        { href: address },
-	        React.createElement("img", { src: imageURL, width: "30px" })
+	        React.createElement("img", { src: imageURL, width: "40px" })
 	      );
 	    }
 	  },
@@ -21121,11 +21106,16 @@
 	        React.createElement(
 	          "p",
 	          null,
+	          React.createElement("a", { name: "contact" }),
 	          dataItem.contactInfo
 	        ),
-	        this.makeButton("facebookURL", "https://image.freepik.com/free-icon/facebook-logo_318-49940.png"),
-	        this.makeButton("twitterURL", "https://image.freepik.com/free-icon/twitter-bird-in-a-rounded-square_318-41054.png"),
-	        this.makeButton("email", "http://soligorsk.pma.by/wp-content/uploads/2011/07/email-dog-icon.png")
+	        React.createElement(
+	          "p",
+	          null,
+	          this.makeButton("facebookURL", "https://image.freepik.com/free-icon/facebook-logo_318-49940.png"),
+	          this.makeButton("twitterURL", "https://image.freepik.com/free-icon/twitter-bird-in-a-rounded-square_318-41054.png"),
+	          this.makeButton("email", "http://soligorsk.pma.by/wp-content/uploads/2011/07/email-dog-icon.png")
+	        )
 	      );
 	    }.bind(this));
 
@@ -21138,6 +21128,60 @@
 	});
 
 	module.exports = Contact;
+
+/***/ },
+/* 164 */
+/***/ function(module, exports) {
+
+	module.exports = [
+		{
+			"id": 1457369859655,
+			"title": "My name is Beth and I'm a software developer living in Edinburgh.",
+			"body": "**Welcome to my website**! My name's Beth and I'm a student at CodeClan in Edinburgh. This is a place for me to test out what I've learned and show off my new skills in HTML and CSS.\n<br><br>\nI've been living in Edinburgh for two years, and love the city. I'm originally from Northumberland, just south of the border. I'm really enjoying coding so far - as well as HTML and CSS I've started on some simple Ruby. Click on the links above to find out more about my interests or to get in touch.",
+			"headerImage": "https://s3.amazonaws.com/StartupStockPhotos/uploads/42.jpg",
+			"contactInfo": "Get in touch - email is the easiest, or @ me on Twitter.",
+			"facebookURL": "http://www.facebook.com/",
+			"twitterURL": "http://www.twitter.com/edinbeth",
+			"email": "bethanyfraser@live.co.uk"
+		}
+	];
+
+/***/ },
+/* 165 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	var React = __webpack_require__(1);
+
+	var Nav = React.createClass({
+	  displayName: "Nav",
+
+
+	  render: function render() {
+
+	    return React.createElement(
+	      "div",
+	      { className: "nav" },
+	      "Navigation",
+	      React.createElement(
+	        "ul",
+	        null,
+	        React.createElement(
+	          "li",
+	          null,
+	          React.createElement(
+	            "a",
+	            { href: "#contact" },
+	            "Contact"
+	          )
+	        )
+	      )
+	    );
+	  }
+	});
+
+	module.exports = Nav;
 
 /***/ }
 /******/ ]);

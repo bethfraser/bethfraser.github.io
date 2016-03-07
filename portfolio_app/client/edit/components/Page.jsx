@@ -2,6 +2,7 @@ var React = require('react');
 var Header = require('./Header');
 var Body = require('./Body');
 var Contact = require('./Contact');
+var Nav = require('./Nav');
 var EditForm = require('./EditForm');
 
 var Page = React.createClass({
@@ -46,6 +47,7 @@ var Page = React.createClass({
     return (
       <div className="commentBox">
       <EditForm url={this.props.url} onSubmit={this.handleCommentSubmit} />
+        <Nav />
         <Header data={this.state.data} />
         <Body data={this.state.data} />
         <Contact data={this.state.data} />

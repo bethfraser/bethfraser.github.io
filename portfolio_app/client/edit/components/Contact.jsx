@@ -12,7 +12,7 @@ var Contact = React.createClass({
       }
 
       return(
-        <a href={address} ><img src={imageURL} width="30px" /></a>
+        <a href={address} ><img src={imageURL} width="40px" /></a>
         )
     }
 
@@ -26,12 +26,14 @@ var Contact = React.createClass({
       return (
         <div key={index}>
         <p>
+        <a name="contact"></a>
         {dataItem.contactInfo}
         </p>
+        <p>
         {this.makeButton("facebookURL", "https://image.freepik.com/free-icon/facebook-logo_318-49940.png")}
         {this.makeButton("twitterURL", "https://image.freepik.com/free-icon/twitter-bird-in-a-rounded-square_318-41054.png")}
         {this.makeButton("email", "http://soligorsk.pma.by/wp-content/uploads/2011/07/email-dog-icon.png")}
-
+        </p>
         </div>
         );
     }.bind(this));
