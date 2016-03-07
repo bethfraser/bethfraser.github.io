@@ -19664,7 +19664,8 @@
 	var React = __webpack_require__(1);
 	var Header = __webpack_require__(160);
 	var Body = __webpack_require__(161);
-	var EditForm = __webpack_require__(163);
+	var Contact = __webpack_require__(163);
+	var EditForm = __webpack_require__(164);
 
 	var Page = React.createClass({
 	  displayName: 'Page',
@@ -19712,7 +19713,8 @@
 	      { className: 'commentBox' },
 	      React.createElement(EditForm, { url: this.props.url, onSubmit: this.handleCommentSubmit }),
 	      React.createElement(Header, { data: this.state.data }),
-	      React.createElement(Body, { data: this.state.data })
+	      React.createElement(Body, { data: this.state.data }),
+	      React.createElement(Contact, { data: this.state.data })
 	    );
 	  }
 	});
@@ -21092,6 +21094,63 @@
 /* 163 */
 /***/ function(module, exports, __webpack_require__) {
 
+	"use strict";
+
+	var React = __webpack_require__(1);
+
+	var Contact = React.createClass({
+	  displayName: "Contact",
+
+	  makeButton: function makeButton(type, imageURL) {
+
+	    if (this.props.data[0][type] !== "") {
+	      if (type === "email") {
+	        var address = "mailto:" + this.props.data[0][type];
+	      } else {
+	        var address = this.props.data[0][type];
+	      }
+
+	      return React.createElement(
+	        "a",
+	        { href: address },
+	        React.createElement("img", { src: imageURL, width: "30px" })
+	      );
+	    }
+	  },
+	  render: function render() {
+
+	    var data = this.props.data || [];
+
+	    var contactInfo = data.map(function (dataItem, index) {
+
+	      return React.createElement(
+	        "div",
+	        { key: index },
+	        React.createElement(
+	          "p",
+	          null,
+	          dataItem.contactInfo
+	        ),
+	        this.makeButton("facebookURL", "https://image.freepik.com/free-icon/facebook-logo_318-49940.png"),
+	        this.makeButton("twitterURL", "https://image.freepik.com/free-icon/twitter-bird-in-a-rounded-square_318-41054.png"),
+	        this.makeButton("email", "http://soligorsk.pma.by/wp-content/uploads/2011/07/email-dog-icon.png")
+	      );
+	    }.bind(this));
+
+	    return React.createElement(
+	      "div",
+	      { className: "contact-div" },
+	      contactInfo
+	    );
+	  }
+	});
+
+	module.exports = Contact;
+
+/***/ },
+/* 164 */
+/***/ function(module, exports, __webpack_require__) {
+
 	'use strict';
 
 	var React = __webpack_require__(1);
@@ -21099,7 +21158,7 @@
 	  displayName: 'EditForm',
 
 	  getInitialState: function getInitialState() {
-	    return { title: '', body: '', headerImage: '' };
+	    return { title: '', body: '', headerImage: '', contactInfo: '', facebookURL: '', twitterURL: '', email: '' };
 	  },
 	  handleTitleChange: function handleTitleChange(e) {
 	    this.setState({ title: e.target.value });
@@ -21110,20 +21169,36 @@
 	  handleImageChange: function handleImageChange(e) {
 	    this.setState({ headerImage: e.target.value });
 	  },
+	  handleContactInfoChange: function handleContactInfoChange(e) {
+	    this.setState({ contactInfo: e.target.value });
+	  },
+	  handleFacebookURLChange: function handleFacebookURLChange(e) {
+	    this.setState({ facebookURL: e.target.value });
+	  },
+	  handleTwitterURLChange: function handleTwitterURLChange(e) {
+	    this.setState({ twitterURL: e.target.value });
+	  },
+	  handleEmailChange: function handleEmailChange(e) {
+	    this.setState({ email: e.target.value });
+	  },
 	  handleSubmit: function handleSubmit(e) {
 	    e.preventDefault();
 	    var title = this.state.title.trim();
 	    var body = this.state.body.trim();
 	    var headerImage = this.state.headerImage.trim();
-	    this.props.onSubmit({ title: title, body: body, headerImage: headerImage });
+	    var contactInfo = this.state.contactInfo.trim();
+	    var facebookURL = this.state.facebookURL.trim();
+	    var twitterURL = this.state.twitterURL.trim();
+	    var email = this.state.email.trim();
+	    this.props.onSubmit({ title: title, body: body, headerImage: headerImage, contactInfo: contactInfo, facebookURL: facebookURL, twitterURL: twitterURL, email: email });
 	  },
 	  componentDidMount: function componentDidMount() {
 	    var request = new XMLHttpRequest();
 	    request.open("GET", this.props.url);
 	    request.onload = function () {
 	      if (request.status === 200) {
-	        var receivedComments = JSON.parse(request.responseText);
-	        this.setState({ title: receivedComments[0].title, body: receivedComments[0].body, headerImage: receivedComments[0].headerImage });
+	        var receivedData = JSON.parse(request.responseText);
+	        this.setState({ title: receivedData[0].title, body: receivedData[0].body, headerImage: receivedData[0].headerImage, contactInfo: receivedData[0].contactInfo, facebookURL: receivedData[0].facebookURL, twitterURL: receivedData[0].twitterURL, email: receivedData[0].email });
 	      }
 	    }.bind(this);
 	    request.send(null);
@@ -21208,6 +21283,55 @@
 	            placeholder: 'Body text',
 	            value: this.state.body,
 	            onChange: this.handleBodyChange
+	          }),
+	          React.createElement(
+	            'label',
+	            null,
+	            'Contact Section Body (You can use ',
+	            React.createElement(
+	              'a',
+	              { href: 'http://chibicode.github.io/markdown-toolbar-cheatsheet/', target: 'new' },
+	              'Markdown'
+	            ),
+	            ' or HTML in this section)'
+	          ),
+	          React.createElement('textarea', {
+	            placeholder: 'Contact section text',
+	            value: this.state.contactInfo,
+	            onChange: this.handleContactInfoChange
+	          }),
+	          React.createElement(
+	            'label',
+	            null,
+	            'Facebook Link'
+	          ),
+	          React.createElement('input', {
+	            type: 'text',
+	            placeholder: 'http://www.facebook.com/',
+	            value: this.state.facebookURL,
+	            onChange: this.handleFacebookURLChange
+	          }),
+	          React.createElement(
+	            'label',
+	            null,
+	            'Twitter Link'
+	          ),
+	          React.createElement('input', {
+	            type: 'text',
+	            placeholder: 'http://www.twitter.com/',
+	            value: this.state.twitterURL,
+	            onChange: this.handleTwitterURLChange
+	          }),
+	          React.createElement(
+	            'label',
+	            null,
+	            'Email Address'
+	          ),
+	          React.createElement('input', {
+	            type: 'text',
+	            placeholder: 'you@email.com',
+	            value: this.state.email,
+	            onChange: this.handleEmailChange
 	          }),
 	          React.createElement('input', { type: 'submit', value: 'Save' })
 	        )

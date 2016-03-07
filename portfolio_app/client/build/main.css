@@ -56,11 +56,18 @@ header {
 }
 
 
-.body-div {
+.body-div, .contact-div {
   padding: 20px;
   line-height: 2em;
   width: 80%;
   margin: 0 auto;
+}
+
+.contact-div {
+  text-align: center;
+}
+.contact-div img {
+  padding: 5px;
 }
 
 .form-div {

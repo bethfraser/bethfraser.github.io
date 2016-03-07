@@ -37,7 +37,12 @@ app.post('/api/homepage', function(req, res){
       title: req.body.title,
       subtitle: req.body.subtitle,
       body: req.body.body,
-      headerImage: req.body.headerImage
+      headerImage: req.body.headerImage,
+      contactInfo: req.body.contactInfo,
+      facebookURL: req.body.facebookURL,
+      twitterURL: req.body.twitterURL,
+      githubURL: req.body.githubURL,
+      email: req.body.email
     }
     ];
     homepage = newHomepage;

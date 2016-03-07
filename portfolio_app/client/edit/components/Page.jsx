@@ -1,6 +1,7 @@
 var React = require('react');
 var Header = require('./Header');
 var Body = require('./Body');
+var Contact = require('./Contact');
 var EditForm = require('./EditForm');
 
 var Page = React.createClass({
@@ -47,6 +48,7 @@ var Page = React.createClass({
       <EditForm url={this.props.url} onSubmit={this.handleCommentSubmit} />
         <Header data={this.state.data} />
         <Body data={this.state.data} />
+        <Contact data={this.state.data} />
       </div>
     );
   }
