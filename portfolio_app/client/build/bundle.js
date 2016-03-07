@@ -19664,8 +19664,7 @@
 	var React = __webpack_require__(1);
 	var Header = __webpack_require__(160);
 	var Body = __webpack_require__(161);
-	var CommentForm = __webpack_require__(163);
-	var data = __webpack_require__(164);
+	var data = __webpack_require__(163);
 
 	var Page = React.createClass({
 	  displayName: 'Page',
@@ -19713,7 +19712,7 @@
 	    var headerInfo = data.map(function (header, index) {
 
 	      var headerStyle = {
-	        backgroundImage: "linear-gradient(to top, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.4)), linear-gradient(to top, rgba(25, 160, 195, 0.5), rgba(25, 160, 195, 0.5)), url(" + header.headerImage + ")"
+	        backgroundImage: "linear-gradient(to top, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(" + header.headerImage + ")"
 	      };
 
 	      return React.createElement(
@@ -21062,108 +21061,14 @@
 
 /***/ },
 /* 163 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	var React = __webpack_require__(1);
-	var CommentForm = React.createClass({
-	  displayName: 'CommentForm',
-
-	  getInitialState: function getInitialState() {
-	    return { title: '', body: '', headerImage: '' };
-	  },
-	  handleTitleChange: function handleTitleChange(e) {
-	    this.setState({ title: e.target.value });
-	  },
-	  handleBodyChange: function handleBodyChange(e) {
-	    this.setState({ body: e.target.value });
-	  },
-	  handleImageChange: function handleImageChange(e) {
-	    this.setState({ headerImage: e.target.value });
-	  },
-	  handleSubmit: function handleSubmit(e) {
-	    e.preventDefault();
-	    var title = this.state.title.trim();
-	    var body = this.state.body.trim();
-	    var headerImage = this.state.headerImage.trim();
-	    this.props.onCommentSubmit({ title: title, body: body, headerImage: headerImage });
-	  },
-	  componentDidMount: function componentDidMount() {
-	    var request = new XMLHttpRequest();
-	    request.open("GET", this.props.url);
-	    request.onload = function () {
-	      if (request.status === 200) {
-	        var receivedComments = JSON.parse(request.responseText);
-	        this.setState({ title: receivedComments[0].title, body: receivedComments[0].body, headerImage: receivedComments[0].headerImage });
-	      }
-	    }.bind(this);
-	    request.send(null);
-	  },
-
-	  loadEditForm: function loadEditForm() {
-	    var formDiv = this.refs.formDiv;
-	    if (formDiv.style.display == "none") {
-	      formDiv.style.display = "block";
-	    } else {
-	      formDiv.style.display = "none";
-	    }
-	  },
-	  render: function render() {
-
-	    var formStyle = {
-	      display: "none"
-	    };
-
-	    return React.createElement(
-	      'div',
-	      null,
-	      React.createElement(
-	        'button',
-	        { onClick: this.loadEditForm },
-	        'Edit Page'
-	      ),
-	      React.createElement(
-	        'div',
-	        { ref: 'formDiv', style: formStyle },
-	        React.createElement(
-	          'form',
-	          { className: 'commentForm', onSubmit: this.handleSubmit },
-	          React.createElement('input', {
-	            type: 'text',
-	            placeholder: 'Title',
-	            value: this.state.title,
-	            onChange: this.handleTitleChange
-	          }),
-	          React.createElement('input', {
-	            type: 'text',
-	            placeholder: 'Header Image',
-	            value: this.state.headerImage,
-	            onChange: this.handleImageChange
-	          }),
-	          React.createElement('textarea', {
-	            placeholder: 'Body text',
-	            value: this.state.body,
-	            onChange: this.handleBodyChange
-	          }),
-	          React.createElement('input', { type: 'submit', value: 'Save' })
-	        )
-	      )
-	    );
-	  }
-	});
-
-	module.exports = CommentForm;
-
-/***/ },
-/* 164 */
 /***/ function(module, exports) {
 
 	module.exports = [
 		{
-			"id": 1457011694198,
-			"title": "Beth Fraser",
-			"body": "**Welcome to my website**! My name's Beth and I'm a student at CodeClan in Edinburgh. This is a place for me to test out what I've learned and show off my new skills in HTML and CSS.\n<br><br>\nI've been living in Edinburgh for two years, and love the city. I'm originally from Northumberland, just south of the border. I'm really enjoying coding so far - as well as HTML and CSS I've started on some simple Ruby. Click on the links above to find out more about my interests or to get in touch.\n\n<img src=\"http://icons.iconarchive.com/icons/hopstarter/superhero-avatar/256/Avengers-Black-Widow-icon.png\" height=\"150px\">",
+			"id": 1457351300949,
+			"title": "My name is Beth Fraser and I'm a software developer living in Edinburgh.",
+			"subtitle": "A junior developer",
+			"body": "**Welcome to my website**! My name's Beth and I'm a student at CodeClan in Edinburgh. This is a place for me to test out what I've learned and show off my new skills in HTML and CSS.\n<br><br>\nI've been living in Edinburgh for two years, and love the city. I'm originally from Northumberland, just south of the border. I'm really enjoying coding so far - as well as HTML and CSS I've started on some simple Ruby. Click on the links above to find out more about my interests or to get in touch.",
 			"headerImage": "https://s3.amazonaws.com/StartupStockPhotos/uploads/42.jpg"
 		}
 	];

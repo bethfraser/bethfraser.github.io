@@ -1,7 +1,6 @@
 var React = require('react');
 var Header = require('./Header');
 var Body = require('./Body');
-var CommentForm = require('./CommentForm');
 var data = require('json!../../../../pages_api/homepage.json')
 
 var Page = React.createClass({

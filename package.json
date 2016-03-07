@@ -1,0 +1,20 @@
+{
+  "name": "end_point",
+  "version": "1.0.0",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "npm run main-serv & npm run api-serv & npm run webpack-edit & npm run webpack-main & npm run open-edit & wait",
+    "main-serv": "cd portfolio_app && node server.js",
+    "webpack-edit": "cd portfolio_app/client/edit/ && webpack -w",
+    "webpack-main": "cd portfolio_app/client && webpack -w",
+    "api-serv": "cd ./pages_api && node server.js",
+    "open-edit": "open http://localhost:3000/edit"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.13.4",
+    "marked": "^0.3.5"
+  }
+}

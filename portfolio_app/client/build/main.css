@@ -1,6 +1,6 @@
 body {
   margin: 0;
-  font-family: Tahoma;
+  font-family: "Open Sans";
 }
 
 input, textarea, label {
@@ -28,21 +28,31 @@ textarea {
 header {
   background-size: cover;
   height: 100%;
+  width: 100%;
+  display: table;
 }
 
 .header-div {
   height: 70vh;
   text-align: center;
+  width: 100%;
 }
 
 .title  {
   height: 100%;
-  font-family: "Helvetica";
-  text-transform: uppercase;
+  font-family: "Open Sans";
   color: white;
   margin: 0;
   padding: 0;
-  line-height: 70vh;
+  display: table-cell;
+  vertical-align: middle;
+  font-weight: 400 !important;
+}
+
+.title h1 {
+  font-weight: 400;
+  display: inline-block;
+  width: 70%;
 }
 
 
@@ -74,6 +84,10 @@ header {
 .edit-nav a {
   color: white;
   font-family: Tahoma;
+}
+
+h1 {
+  margin: 0;
 }
 
 button {

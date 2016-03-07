@@ -19737,7 +19737,7 @@
 	    var headerInfo = data.map(function (header, index) {
 
 	      var headerStyle = {
-	        backgroundImage: "linear-gradient(to top, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.4)), linear-gradient(to top, rgba(25, 160, 195, 0.5), rgba(25, 160, 195, 0.5)), url(" + header.headerImage + ")"
+	        backgroundImage: "linear-gradient(to top, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(" + header.headerImage + ")"
 	      };
 
 	      return React.createElement(
@@ -21099,13 +21099,10 @@
 	  displayName: 'EditForm',
 
 	  getInitialState: function getInitialState() {
-	    return { title: '', subtitle: '', body: '', headerImage: '' };
+	    return { title: '', body: '', headerImage: '' };
 	  },
 	  handleTitleChange: function handleTitleChange(e) {
 	    this.setState({ title: e.target.value });
-	  },
-	  handleSubtitleChange: function handleSubtitleChange(e) {
-	    this.setState({ subtitle: e.target.value });
 	  },
 	  handleBodyChange: function handleBodyChange(e) {
 	    this.setState({ body: e.target.value });
@@ -21116,10 +21113,9 @@
 	  handleSubmit: function handleSubmit(e) {
 	    e.preventDefault();
 	    var title = this.state.title.trim();
-	    var subtitle = this.state.subtitle.trim();
 	    var body = this.state.body.trim();
 	    var headerImage = this.state.headerImage.trim();
-	    this.props.onSubmit({ title: title, subtitle: subtitle, body: body, headerImage: headerImage });
+	    this.props.onSubmit({ title: title, body: body, headerImage: headerImage });
 	  },
 	  componentDidMount: function componentDidMount() {
 	    var request = new XMLHttpRequest();
@@ -21127,7 +21123,7 @@
 	    request.onload = function () {
 	      if (request.status === 200) {
 	        var receivedComments = JSON.parse(request.responseText);
-	        this.setState({ title: receivedComments[0].title, subtitle: receivedComments[0].subtitle, body: receivedComments[0].body, headerImage: receivedComments[0].headerImage });
+	        this.setState({ title: receivedComments[0].title, body: receivedComments[0].body, headerImage: receivedComments[0].headerImage });
 	      }
 	    }.bind(this);
 	    request.send(null);
@@ -21170,7 +21166,7 @@
 	        React.createElement(
 	          'h3',
 	          null,
-	          'Edit The Page'
+	          'Edit Your Page'
 	        ),
 	        React.createElement(
 	          'form',
@@ -21178,24 +21174,13 @@
 	          React.createElement(
 	            'label',
 	            null,
-	            'Page Title'
+	            'Header Text'
 	          ),
 	          React.createElement('input', {
 	            type: 'text',
 	            placeholder: 'Title',
 	            value: this.state.title,
 	            onChange: this.handleTitleChange
-	          }),
-	          React.createElement(
-	            'label',
-	            null,
-	            'Page Subitle'
-	          ),
-	          React.createElement('input', {
-	            type: 'text',
-	            placeholder: 'Subtitle',
-	            value: this.state.subtitle,
-	            onChange: this.handleSubtitleChange
 	          }),
 	          React.createElement(
 	            'label',
