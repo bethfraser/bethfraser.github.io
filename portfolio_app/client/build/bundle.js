@@ -21180,10 +21180,19 @@
 			"facebookURL": "http://www.facebook.com/",
 			"twitterURL": "http://www.twitter.com/edinbeth",
 			"email": "bethanyfraser@live.co.uk",
-			"projectImage": [
-				"http://s30.postimg.org/o0cdl00up/Screen_Shot_2016_02_07_at_21.png",
-				"http://s30.postimg.org/64ok7bmfl/Screen_Shot_2016_02_14_at_16.png",
-				"http://s30.postimg.org/o0cdl00up/Screen_Shot_2016_02_07_at_21.png"
+			"projects": [
+				{
+					"image": "http://s30.postimg.org/o0cdl00up/Screen_Shot_2016_02_07_at_21.png",
+					"info": "This is a project I did."
+				},
+				{
+					"image": "http://s30.postimg.org/o0cdl00up/Screen_Shot_2016_02_07_at_21.png",
+					"info": "Here is another great  project I did."
+				},
+				{
+					"image": "http://s30.postimg.org/o0cdl00up/Screen_Shot_2016_02_07_at_21.png",
+					"info": "Number 3"
+				}
 			]
 		}
 	];

@@ -90,6 +90,7 @@ header {
 
 .projects-div ul {
   text-align: center;
+
 }
 
 .projects-div li {
@@ -97,6 +98,7 @@ header {
   list-style: none;
   display: inline-block;
   margin: 10px;
+  vertical-align: top;
 }
 
 .projects-div li img {
@@ -130,6 +132,7 @@ header {
   width: 40%;
   background-color: rgba(255, 255, 255, 0.8);
   border-left: 3px solid grey;
+  border-bottom: 3px solid grey;
 }
 
 .edit-nav {

@@ -19664,10 +19664,10 @@
 	var React = __webpack_require__(1);
 	var Header = __webpack_require__(160);
 	var Body = __webpack_require__(161);
-	var Projects = __webpack_require__(166);
-	var Contact = __webpack_require__(163);
-	var Nav = __webpack_require__(164);
-	var EditForm = __webpack_require__(165);
+	var Projects = __webpack_require__(163);
+	var Contact = __webpack_require__(164);
+	var Nav = __webpack_require__(165);
+	var EditForm = __webpack_require__(166);
 
 	var Page = React.createClass({
 	  displayName: 'Page',
@@ -21098,6 +21098,96 @@
 /* 163 */
 /***/ function(module, exports, __webpack_require__) {
 
+	'use strict';
+
+	var React = __webpack_require__(1);
+	var marked = __webpack_require__(162);
+
+	var Projects = React.createClass({
+	  displayName: 'Projects',
+
+
+	  loadInfo: function loadInfo(data, event) {
+	    if (event.srcElement.nextSibling.style.display === "none") {
+	      event.srcElement.nextSibling.style.display = "inline-block";
+	    } else {
+	      event.srcElement.nextSibling.style.display = "none";
+	    }
+	  },
+
+	  componentDidMount: function componentDidMount() {
+	    var first = this.refs.firstproject;
+	    first.addEventListener("click", function (e) {
+	      this.loadInfo(this.props.data, e);
+	    }.bind(this));
+	  },
+
+	  render: function render() {
+
+	    var data = this.props.data || [];
+
+	    var projectsInfo = data.map(function (data, index) {
+
+	      var pStyle = {
+	        display: "none"
+	      };
+
+	      return React.createElement(
+	        'ul',
+	        { key: index },
+	        React.createElement(
+	          'li',
+	          null,
+	          React.createElement('img', { src: data.projects[0].image }),
+	          React.createElement(
+	            'p',
+	            { style: pStyle },
+	            data.projects[0].info
+	          )
+	        ),
+	        React.createElement(
+	          'li',
+	          null,
+	          React.createElement('img', { src: data.projects[1].image }),
+	          React.createElement(
+	            'p',
+	            { style: pStyle },
+	            data.projects[1].info
+	          )
+	        ),
+	        React.createElement(
+	          'li',
+	          null,
+	          React.createElement('img', { src: data.projects[2].image }),
+	          React.createElement(
+	            'p',
+	            { style: pStyle },
+	            data.projects[2].info
+	          )
+	        )
+	      );
+	    }.bind(this));
+
+	    return React.createElement(
+	      'div',
+	      { className: 'projects-div', ref: 'firstproject' },
+	      React.createElement('a', { name: 'projects' }),
+	      React.createElement(
+	        'h1',
+	        null,
+	        'Projects'
+	      ),
+	      projectsInfo,
+	      React.createElement('p', { ref: 'info' })
+	    );
+	  }
+	});
+	module.exports = Projects;
+
+/***/ },
+/* 164 */
+/***/ function(module, exports, __webpack_require__) {
+
 	"use strict";
 
 	var React = __webpack_require__(1);
@@ -21157,7 +21247,7 @@
 	module.exports = Contact;
 
 /***/ },
-/* 164 */
+/* 165 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -21203,7 +21293,7 @@
 	module.exports = Nav;
 
 /***/ },
-/* 165 */
+/* 166 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -21396,61 +21486,6 @@
 	});
 
 	module.exports = EditForm;
-
-/***/ },
-/* 166 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	var React = __webpack_require__(1);
-	var marked = __webpack_require__(162);
-
-	var Projects = React.createClass({
-	  displayName: 'Projects',
-
-
-	  render: function render() {
-
-	    var data = this.props.data || [];
-
-	    var projectsInfo = data.map(function (data, index) {
-
-	      return React.createElement(
-	        'ul',
-	        { key: index },
-	        React.createElement(
-	          'li',
-	          null,
-	          React.createElement('img', { src: data.projectImage[0] })
-	        ),
-	        React.createElement(
-	          'li',
-	          null,
-	          React.createElement('img', { src: data.projectImage[1] })
-	        ),
-	        React.createElement(
-	          'li',
-	          null,
-	          React.createElement('img', { src: data.projectImage[2] })
-	        )
-	      );
-	    });
-
-	    return React.createElement(
-	      'div',
-	      { className: 'projects-div' },
-	      React.createElement('a', { name: 'projects' }),
-	      React.createElement(
-	        'h1',
-	        null,
-	        'Projects'
-	      ),
-	      projectsInfo
-	    );
-	  }
-	});
-	module.exports = Projects;
 
 /***/ }
 /******/ ]);
