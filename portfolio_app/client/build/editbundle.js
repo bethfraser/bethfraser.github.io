@@ -19690,7 +19690,7 @@
 
 	  componentDidMount: function componentDidMount() {
 	    this.fetchComments();
-	    setInterval(this.fetchComments, 10000);
+	    setInterval(this.fetchComments, 1000);
 	  },
 
 	  handleCommentSubmit: function handleCommentSubmit(comment) {
@@ -19754,7 +19754,7 @@
 	          { className: "title" },
 	          React.createElement(
 	            "h1",
-	            null,
+	            { className: "animated fadeInUp" },
 	            header.title
 	          )
 	        )
@@ -21160,13 +21160,13 @@
 	        null,
 	        'Projects'
 	      ),
+	      projectsInfo,
 	      React.createElement(
 	        'div',
 	        { ref: 'info', style: { display: "none" } },
-	        React.createElement('img', { src: this.state.currentImage, width: '40%' }),
-	        React.createElement('p', { style: { display: "inline-block", float: "right", width: "55%" }, dangerouslySetInnerHTML: { __html: projectHTML } })
-	      ),
-	      projectsInfo
+	        React.createElement('img', { src: this.state.currentImage, width: '40%', className: 'animated fadeInLeft' }),
+	        React.createElement('p', { className: 'animated fadeInRight', style: { display: "inline-block", float: "right", width: "55%" }, dangerouslySetInnerHTML: { __html: projectHTML } })
+	      )
 	    );
 	  }
 	});

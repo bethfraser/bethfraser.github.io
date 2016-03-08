@@ -9,7 +9,7 @@ var Projects = React.createClass({
 
   handleImageClick: function(num, event){
     this.refs.info.style.display = "block";
-    this.setState({currentImage: this.props.data[0].projects[num].image, currentInfo: this.props.data[0].projects[num].info})
+    this.setState({currentImage: this.props.data[0].projects[num].image, currentInfo: this.props.data[0].projects[num].info});
   },
 
   render: function() {
@@ -35,11 +35,11 @@ var Projects = React.createClass({
       <div className="projects-div" ref="firstproject">
       <a name="projects"></a>
       <h2>Projects</h2>
+      {projectsInfo}
       <div ref="info" style={{display: "none"}}>
-      <img src={this.state.currentImage} width="40%" />
-      <p style={{display: "inline-block", float: "right", width: "55%"}} dangerouslySetInnerHTML={{__html: projectHTML}}></p>
+      <img src={this.state.currentImage} width="40%" className="animated fadeInLeft" />
+      <p className="animated fadeInRight" style={{display: "inline-block", float: "right", width: "55%"}} dangerouslySetInnerHTML={{__html: projectHTML}}></p>
       </div>
-        {projectsInfo}
       </div>
     );
   }

@@ -35,11 +35,11 @@ var Projects = React.createClass({
       <div className="projects-div" ref="firstproject">
       <a name="projects"></a>
       <h2>Projects</h2>
+      {projectsInfo}
       <div ref="info" style={{display: "none"}}>
-      <img src={this.state.currentImage} width="40%" />
-      <p style={{display: "inline-block", float: "right", width: "55%"}} dangerouslySetInnerHTML={{__html: projectHTML}}></p>
+      <img src={this.state.currentImage} width="40%" className="animated fadeInLeft" />
+      <p className="animated fadeInRight" style={{display: "inline-block", float: "right", width: "55%"}} dangerouslySetInnerHTML={{__html: projectHTML}}></p>
       </div>
-        {projectsInfo}
       </div>
     );
   }

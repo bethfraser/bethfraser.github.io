@@ -25,7 +25,7 @@ var Page = React.createClass({
 
   componentDidMount: function(){
     this.fetchComments();
-    setInterval(this.fetchComments, 10000);
+    setInterval(this.fetchComments, 1000);
   },
 
   handleCommentSubmit: function(comment) {

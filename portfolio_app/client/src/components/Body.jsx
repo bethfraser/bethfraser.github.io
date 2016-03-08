@@ -11,7 +11,7 @@ var Body = React.createClass({
       var bodyHTML = marked(body.body.toString(), {sanitize: false});
 
       return (
-        <div dangerouslySetInnerHTML={{__html: bodyHTML}} key={index}>
+        <div dangerouslySetInnerHTML={{__html: bodyHTML}} key={index} >
           
           </div>
       );

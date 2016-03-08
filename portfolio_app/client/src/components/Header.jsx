@@ -14,7 +14,7 @@ var Header = React.createClass({
       return (
         <header style={headerStyle} key={index}>
         <div className="title">
-        <h1>{header.title}</h1>
+        <h1 className="animated fadeInUp">{header.title}</h1>
         </div>
         </header>
       );

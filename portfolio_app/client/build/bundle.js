@@ -19729,7 +19729,7 @@
 	          { className: "title" },
 	          React.createElement(
 	            "h1",
-	            null,
+	            { className: "animated fadeInUp" },
 	            header.title
 	          )
 	        )
@@ -21135,13 +21135,13 @@
 	        null,
 	        'Projects'
 	      ),
+	      projectsInfo,
 	      React.createElement(
 	        'div',
 	        { ref: 'info', style: { display: "none" } },
-	        React.createElement('img', { src: this.state.currentImage, width: '40%' }),
-	        React.createElement('p', { style: { display: "inline-block", float: "right", width: "55%" }, dangerouslySetInnerHTML: { __html: projectHTML } })
-	      ),
-	      projectsInfo
+	        React.createElement('img', { src: this.state.currentImage, width: '40%', className: 'animated fadeInLeft' }),
+	        React.createElement('p', { className: 'animated fadeInRight', style: { display: "inline-block", float: "right", width: "55%" }, dangerouslySetInnerHTML: { __html: projectHTML } })
+	      )
 	    );
 	  }
 	});
@@ -21261,10 +21261,10 @@
 
 	module.exports = [
 		{
-			"id": 1457449380875,
-			"title": "My name is Beth and I'm a software developer living in Edinburgh.",
+			"id": 1457449692987,
+			"title": "My name is Beth Fraser and I'm a software developer living in Edinburgh.",
 			"body": "**Welcome to my website**! My name's Beth and I'm a student at CodeClan in Edinburgh. This is currently a sample page while I work on a portfolio creator tool I'm making - the contact details at the bottom are real though, so feel free to get in touch!\n<br><br>\nI've been living in Edinburgh for two years, and love the city. I'm originally from Northumberland, just south of the border. I'm really enjoying coding so far - as well as HTML and CSS I've started on some simple Ruby. Click on the links above to find out more about my interests or to get in touch.",
-			"headerImage": "https://s3.amazonaws.com/StartupStockPhotos/uploads/42.jpg",
+			"headerImage": "header.jpg",
 			"contactInfo": "Get in touch - email is the easiest, or @ me on Twitter.",
 			"facebookURL": "http://www.facebook.com/",
 			"twitterURL": "http://www.twitter.com/edinbeth",
