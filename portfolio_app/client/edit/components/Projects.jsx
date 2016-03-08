@@ -28,13 +28,16 @@ var Projects = React.createClass({
     
     }.bind(this));
 
+    var projectHTML = marked(this.state.currentInfo.toString(), {sanitize: false});
+
+
     return (
       <div className="projects-div" ref="firstproject">
       <a name="projects"></a>
       <h2>Projects</h2>
       <div ref="info" style={{display: "none"}}>
       <img src={this.state.currentImage} width="40%" />
-      <p style={{display: "inline-block", float: "right", width: "55%"}}>{this.state.currentInfo}</p>
+      <p style={{display: "inline-block", float: "right", width: "55%"}} dangerouslySetInnerHTML={{__html: projectHTML}}></p>
       </div>
         {projectsInfo}
       </div>

@@ -21149,6 +21149,8 @@
 	      );
 	    }.bind(this));
 
+	    var projectHTML = marked(this.state.currentInfo.toString(), { sanitize: false });
+
 	    return React.createElement(
 	      'div',
 	      { className: 'projects-div', ref: 'firstproject' },
@@ -21162,11 +21164,7 @@
 	        'div',
 	        { ref: 'info', style: { display: "none" } },
 	        React.createElement('img', { src: this.state.currentImage, width: '40%' }),
-	        React.createElement(
-	          'p',
-	          { style: { display: "inline-block", float: "right", width: "55%" } },
-	          this.state.currentInfo
-	        )
+	        React.createElement('p', { style: { display: "inline-block", float: "right", width: "55%" }, dangerouslySetInnerHTML: { __html: projectHTML } })
 	      ),
 	      projectsInfo
 	    );
