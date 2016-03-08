@@ -19664,9 +19664,10 @@
 	var React = __webpack_require__(1);
 	var Header = __webpack_require__(160);
 	var Body = __webpack_require__(161);
-	var Contact = __webpack_require__(163);
-	var Nav = __webpack_require__(164);
-	var data = __webpack_require__(165);
+	var Projects = __webpack_require__(163);
+	var Contact = __webpack_require__(164);
+	var Nav = __webpack_require__(165);
+	var data = __webpack_require__(166);
 
 	var Page = React.createClass({
 	  displayName: 'Page',
@@ -19691,6 +19692,7 @@
 	      React.createElement(Nav, null),
 	      React.createElement(Header, { data: this.state.data }),
 	      React.createElement(Body, { data: this.state.data }),
+	      React.createElement(Projects, { data: this.state.data }),
 	      React.createElement(Contact, { data: this.state.data })
 	    );
 	  }
@@ -21071,6 +21073,84 @@
 /* 163 */
 /***/ function(module, exports, __webpack_require__) {
 
+	'use strict';
+
+	var React = __webpack_require__(1);
+	var marked = __webpack_require__(162);
+
+	var Projects = React.createClass({
+	  displayName: 'Projects',
+
+
+	  getInitialState: function getInitialState() {
+	    return { currentImage: '', currentInfo: '' };
+	  },
+
+	  handleImageClick: function handleImageClick(num, event) {
+	    this.refs.info.style.display = "block";
+	    this.setState({ currentImage: this.props.data[0].projects[num].image, currentInfo: this.props.data[0].projects[num].info });
+	  },
+
+	  render: function render() {
+
+	    var data = this.props.data || [];
+
+	    var projectsInfo = data.map(function (data, index) {
+
+	      return React.createElement(
+	        'ul',
+	        { key: index },
+	        React.createElement(
+	          'li',
+	          null,
+	          React.createElement('img', { src: data.projects[0].image, onClick: function (event) {
+	              this.handleImageClick(0, event);
+	            }.bind(this) })
+	        ),
+	        React.createElement(
+	          'li',
+	          null,
+	          React.createElement('img', { src: data.projects[1].image, onClick: function (event) {
+	              this.handleImageClick(1, event);
+	            }.bind(this) })
+	        ),
+	        React.createElement(
+	          'li',
+	          null,
+	          React.createElement('img', { src: data.projects[2].image, onClick: function (event) {
+	              this.handleImageClick(2, event);
+	            }.bind(this) })
+	        )
+	      );
+	    }.bind(this));
+
+	    var projectHTML = marked(this.state.currentInfo.toString(), { sanitize: false });
+
+	    return React.createElement(
+	      'div',
+	      { className: 'projects-div', ref: 'firstproject' },
+	      React.createElement('a', { name: 'projects' }),
+	      React.createElement(
+	        'h2',
+	        null,
+	        'Projects'
+	      ),
+	      React.createElement(
+	        'div',
+	        { ref: 'info', style: { display: "none" } },
+	        React.createElement('img', { src: this.state.currentImage, width: '40%' }),
+	        React.createElement('p', { style: { display: "inline-block", float: "right", width: "55%" }, dangerouslySetInnerHTML: { __html: projectHTML } })
+	      ),
+	      projectsInfo
+	    );
+	  }
+	});
+	module.exports = Projects;
+
+/***/ },
+/* 164 */
+/***/ function(module, exports, __webpack_require__) {
+
 	"use strict";
 
 	var React = __webpack_require__(1);
@@ -21130,7 +21210,7 @@
 	module.exports = Contact;
 
 /***/ },
-/* 164 */
+/* 165 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -21155,6 +21235,15 @@
 	          null,
 	          React.createElement(
 	            "a",
+	            { href: "#projects" },
+	            "Projects"
+	          )
+	        ),
+	        React.createElement(
+	          "li",
+	          null,
+	          React.createElement(
+	            "a",
 	            { href: "#contact" },
 	            "Contact"
 	          )
@@ -21167,14 +21256,14 @@
 	module.exports = Nav;
 
 /***/ },
-/* 165 */
+/* 166 */
 /***/ function(module, exports) {
 
 	module.exports = [
 		{
-			"id": 1457447617598,
-			"title": "My name is Beth Fraser and I'm a software developer living in Edinburgh.",
-			"body": "**Welcome to my website**! My name's Beth and I'm a student at CodeClan in Edinburgh. This is a place for me to test out what I've learned and show off my new skills in HTML and CSS.\n<br><br>\nI've been living in Edinburgh for two years, and love the city. I'm originally from Northumberland, just south of the border. I'm really enjoying coding so far - as well as HTML and CSS I've started on some simple Ruby. Click on the links above to find out more about my interests or to get in touch.",
+			"id": 1457449380875,
+			"title": "My name is Beth and I'm a software developer living in Edinburgh.",
+			"body": "**Welcome to my website**! My name's Beth and I'm a student at CodeClan in Edinburgh. This is currently a sample page while I work on a portfolio creator tool I'm making - the contact details at the bottom are real though, so feel free to get in touch!\n<br><br>\nI've been living in Edinburgh for two years, and love the city. I'm originally from Northumberland, just south of the border. I'm really enjoying coding so far - as well as HTML and CSS I've started on some simple Ruby. Click on the links above to find out more about my interests or to get in touch.",
 			"headerImage": "https://s3.amazonaws.com/StartupStockPhotos/uploads/42.jpg",
 			"contactInfo": "Get in touch - email is the easiest, or @ me on Twitter.",
 			"facebookURL": "http://www.facebook.com/",
@@ -21183,15 +21272,15 @@
 			"projects": [
 				{
 					"image": "https://s3.amazonaws.com/StartupStockPhotos/uploads/42.jpg",
-					"info": "<h3>Project 1</h3>\nHi there this is my project.\nLa la la."
+					"info": "<h3>Project 1</h3>\nSample text about project here."
 				},
 				{
-					"image": "https://s3.amazonaws.com/StartupStockPhotos/uploads/42.jpg",
-					"info": "two two two **two**"
+					"image": "http://41.media.tumblr.com/f343c542f892e2387328005afb2a5871/tumblr_nqx8x3SkaQ1tubinno1_1280.jpg",
+					"info": "<h3>Project 2</h3>\nSample text about project here."
 				},
 				{
-					"image": "https://s3.amazonaws.com/StartupStockPhotos/uploads/42.jpg",
-					"info": "three *3*"
+					"image": "http://36.media.tumblr.com/dc9f54eca8172f97ad4905d7603a8f94/tumblr_nqx8qso0pm1tubinno1_1280.jpg",
+					"info": "<h3>Project 3</h3>\nSample text about project here."
 				}
 			]
 		}
