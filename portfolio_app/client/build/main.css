@@ -81,10 +81,36 @@ header {
 }
 
 
-.body-div p, .contact-div p {
+.body-div p, .contact-div p, .projects-div ul {
   padding: 20px;
   line-height: 2em;
   width: 80%;
+  margin: 0 auto;
+}
+
+.projects-div ul {
+  text-align: center;
+}
+
+.projects-div li {
+  width: 30%;
+  list-style: none;
+  display: inline-block;
+  margin: 10px;
+}
+
+.projects-div li img {
+  max-width: 100%;
+  padding: 5px;
+  border: 1px solid lightgrey;
+}
+
+.projects-div h1 {
+  width: 80%;
+  text-align: center;
+  font-family: "Open Sans";
+  text-transform: uppercase;
+  font-weight: 400;
   margin: 0 auto;
 }
 
@@ -102,7 +128,6 @@ header {
   right: 0;
   top: 40px;
   width: 40%;
-  height: 100%;
   background-color: rgba(255, 255, 255, 0.8);
   border-left: 3px solid grey;
 }

@@ -1,6 +1,7 @@
 var React = require('react');
 var Header = require('./Header');
 var Body = require('./Body');
+var Projects = require('./Projects');
 var Contact = require('./Contact');
 var Nav = require('./Nav');
 var EditForm = require('./EditForm');
@@ -50,6 +51,7 @@ var Page = React.createClass({
         <Nav />
         <Header data={this.state.data} />
         <Body data={this.state.data} />
+        <Projects data={this.state.data} />
         <Contact data={this.state.data} />
       </div>
     );

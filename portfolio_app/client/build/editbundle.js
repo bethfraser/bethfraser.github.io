@@ -19664,9 +19664,10 @@
 	var React = __webpack_require__(1);
 	var Header = __webpack_require__(160);
 	var Body = __webpack_require__(161);
+	var Projects = __webpack_require__(166);
 	var Contact = __webpack_require__(163);
-	var Nav = __webpack_require__(165);
-	var EditForm = __webpack_require__(164);
+	var Nav = __webpack_require__(164);
+	var EditForm = __webpack_require__(165);
 
 	var Page = React.createClass({
 	  displayName: 'Page',
@@ -19716,6 +19717,7 @@
 	      React.createElement(Nav, null),
 	      React.createElement(Header, { data: this.state.data }),
 	      React.createElement(Body, { data: this.state.data }),
+	      React.createElement(Projects, { data: this.state.data }),
 	      React.createElement(Contact, { data: this.state.data })
 	    );
 	  }
@@ -21158,6 +21160,52 @@
 /* 164 */
 /***/ function(module, exports, __webpack_require__) {
 
+	"use strict";
+
+	var React = __webpack_require__(1);
+
+	var Nav = React.createClass({
+	  displayName: "Nav",
+
+
+	  render: function render() {
+
+	    return React.createElement(
+	      "div",
+	      { className: "nav" },
+	      "Navigation",
+	      React.createElement(
+	        "ul",
+	        null,
+	        React.createElement(
+	          "li",
+	          null,
+	          React.createElement(
+	            "a",
+	            { href: "#projects" },
+	            "Projects"
+	          )
+	        ),
+	        React.createElement(
+	          "li",
+	          null,
+	          React.createElement(
+	            "a",
+	            { href: "#contact" },
+	            "Contact"
+	          )
+	        )
+	      )
+	    );
+	  }
+	});
+
+	module.exports = Nav;
+
+/***/ },
+/* 165 */
+/***/ function(module, exports, __webpack_require__) {
+
 	'use strict';
 
 	var React = __webpack_require__(1);
@@ -21350,41 +21398,59 @@
 	module.exports = EditForm;
 
 /***/ },
-/* 165 */
+/* 166 */
 /***/ function(module, exports, __webpack_require__) {
 
-	"use strict";
+	'use strict';
 
 	var React = __webpack_require__(1);
+	var marked = __webpack_require__(162);
 
-	var Nav = React.createClass({
-	  displayName: "Nav",
+	var Projects = React.createClass({
+	  displayName: 'Projects',
 
 
 	  render: function render() {
 
-	    return React.createElement(
-	      "div",
-	      { className: "nav" },
-	      "Navigation",
-	      React.createElement(
-	        "ul",
-	        null,
+	    var data = this.props.data || [];
+
+	    var projectsInfo = data.map(function (data, index) {
+
+	      return React.createElement(
+	        'ul',
+	        { key: index },
 	        React.createElement(
-	          "li",
+	          'li',
 	          null,
-	          React.createElement(
-	            "a",
-	            { href: "#contact" },
-	            "Contact"
-	          )
+	          React.createElement('img', { src: data.projectImage[0] })
+	        ),
+	        React.createElement(
+	          'li',
+	          null,
+	          React.createElement('img', { src: data.projectImage[1] })
+	        ),
+	        React.createElement(
+	          'li',
+	          null,
+	          React.createElement('img', { src: data.projectImage[2] })
 	        )
-	      )
+	      );
+	    });
+
+	    return React.createElement(
+	      'div',
+	      { className: 'projects-div' },
+	      React.createElement('a', { name: 'projects' }),
+	      React.createElement(
+	        'h1',
+	        null,
+	        'Projects'
+	      ),
+	      projectsInfo
 	    );
 	  }
 	});
-
-	module.exports = Nav;
+	module.exports = Projects;
 
 /***/ }
 /******/ ]);
