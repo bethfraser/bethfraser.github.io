@@ -81,7 +81,7 @@ header {
 }
 
 
-.body-div p, .contact-div p, .projects-div ul {
+.body-div p, .contact-div p, .projects-div ul, .projects-div div {
   padding: 20px;
   line-height: 2em;
   width: 80%;
@@ -107,7 +107,7 @@ header {
   border: 1px solid lightgrey;
 }
 
-.projects-div h1 {
+.projects-div h2 {
   width: 80%;
   text-align: center;
   font-family: "Open Sans";

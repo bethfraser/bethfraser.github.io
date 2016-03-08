@@ -3,19 +3,13 @@ var marked = require('marked');
 
 var Projects = React.createClass({
 
-  loadInfo: function(data, event){
-    if(event.srcElement.nextSibling.style.display === "none"){
-     event.srcElement.nextSibling.style.display = "inline-block";
-    }
-    else {
-      event.srcElement.nextSibling.style.display = "none";
-    }
-
+  getInitialState: function(){
+    return {currentImage: '', currentInfo: ''}
   },
 
-  componentDidMount: function(){
-    var first = this.refs.firstproject;
-    first.addEventListener("click", function(e){this.loadInfo(this.props.data, e)}.bind(this));
+  handleImageClick: function(num, event){
+    this.refs.info.style.display = "block";
+    this.setState({currentImage: this.props.data[0].projects[num].image, currentInfo: this.props.data[0].projects[num].info})
   },
 
   render: function() {
@@ -24,18 +18,11 @@ var Projects = React.createClass({
 
     var projectsInfo = data.map(function(data,index){
 
-      var pStyle = {
-        display: "none"
-      }
-
       return (
         <ul key={index}>
-          <li><img src={data.projects[0].image} />
-          <p style={pStyle}>{data.projects[0].info}</p></li>
-          <li><img src={data.projects[1].image} />
-          <p style={pStyle}>{data.projects[1].info}</p></li>
-          <li><img src={data.projects[2].image} />
-          <p style={pStyle}>{data.projects[2].info}</p></li>
+          <li><img src={data.projects[0].image} onClick={function(event){this.handleImageClick(0, event)}.bind(this)}/></li>
+          <li><img src={data.projects[1].image} onClick={function(event){this.handleImageClick(1, event)}.bind(this)}/></li>
+          <li><img src={data.projects[2].image} onClick={function(event){this.handleImageClick(2, event)}.bind(this)}/></li>
         </ul>
       )
     
@@ -44,10 +31,12 @@ var Projects = React.createClass({
     return (
       <div className="projects-div" ref="firstproject">
       <a name="projects"></a>
-      <h1>Projects</h1>
-      
+      <h2>Projects</h2>
+      <div ref="info" style={{display: "none"}}>
+      <img src={this.state.currentImage} width="40%" />
+      <p style={{display: "inline-block", float: "right", width: "55%"}}>{this.state.currentInfo}</p>
+      </div>
         {projectsInfo}
-      <p ref="info"></p>
       </div>
     );
   }

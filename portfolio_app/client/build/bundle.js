@@ -21172,8 +21172,8 @@
 
 	module.exports = [
 		{
-			"id": 1457369859655,
-			"title": "My name is Beth and I'm a software developer living in Edinburgh.",
+			"id": 1457446987015,
+			"title": "My name is Beth Fraser and I'm a software developer living in Edinburgh.",
 			"body": "**Welcome to my website**! My name's Beth and I'm a student at CodeClan in Edinburgh. This is a place for me to test out what I've learned and show off my new skills in HTML and CSS.\n<br><br>\nI've been living in Edinburgh for two years, and love the city. I'm originally from Northumberland, just south of the border. I'm really enjoying coding so far - as well as HTML and CSS I've started on some simple Ruby. Click on the links above to find out more about my interests or to get in touch.",
 			"headerImage": "https://s3.amazonaws.com/StartupStockPhotos/uploads/42.jpg",
 			"contactInfo": "Get in touch - email is the easiest, or @ me on Twitter.",
@@ -21182,16 +21182,16 @@
 			"email": "bethanyfraser@live.co.uk",
 			"projects": [
 				{
-					"image": "http://s30.postimg.org/o0cdl00up/Screen_Shot_2016_02_07_at_21.png",
-					"info": "This is a project I did."
+					"image": "https://s3.amazonaws.com/StartupStockPhotos/uploads/42.jpg",
+					"info": "one two three four"
 				},
 				{
-					"image": "http://s30.postimg.org/o0cdl00up/Screen_Shot_2016_02_07_at_21.png",
-					"info": "Here is another great  project I did."
+					"image": "https://s3.amazonaws.com/StartupStockPhotos/uploads/42.jpg",
+					"info": "two two two"
 				},
 				{
-					"image": "http://s30.postimg.org/o0cdl00up/Screen_Shot_2016_02_07_at_21.png",
-					"info": "Number 3"
+					"image": "https://s3.amazonaws.com/StartupStockPhotos/uploads/42.jpg",
+					"info": "three"
 				}
 			]
 		}

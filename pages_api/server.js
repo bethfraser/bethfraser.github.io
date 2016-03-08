@@ -42,7 +42,8 @@ app.post('/api/homepage', function(req, res){
       facebookURL: req.body.facebookURL,
       twitterURL: req.body.twitterURL,
       githubURL: req.body.githubURL,
-      email: req.body.email
+      email: req.body.email,
+      projects: [{"image": req.body.projectImageOne, "info": req.body.projectInfoOne}, {"image": req.body.projectImageTwo, "info": req.body.projectInfoTwo}, {"image": req.body.projectImageThree, "info": req.body.projectInfoThree}]
     }
     ];
     homepage = newHomepage;
