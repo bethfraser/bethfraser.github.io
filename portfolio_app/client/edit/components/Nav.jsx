@@ -8,12 +8,12 @@ var Nav = React.createClass({
 
 
     return (
-      <div className="nav">
+      <nav className="nav-down">
       <ul>
       <li><a href="#projects">Projects</a></li>
       <li><a href="#contact">Contact</a></li>
       </ul>
-      </div>
+      </nav>
       );
   }
 });
