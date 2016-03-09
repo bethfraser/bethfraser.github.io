@@ -85,8 +85,8 @@ var EditForm = React.createClass({
     return(
       <div>
       <div className="edit-nav">
-      <a href="/">Preview</a>
-      <button onClick={this.loadEditForm}>Edit Page</button>
+      <a href="/" className="edit-button">View Preview</a>
+      <button onClick={this.loadEditForm} className="edit-button">Edit Page</button>
       </div>
       <div className="form-div" ref="formDiv" style={formStyle}>
       <h3>Edit Your Page</h3>

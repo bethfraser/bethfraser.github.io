@@ -8,7 +8,8 @@
     "webpack-edit": "cd portfolio_app/client/edit/ && webpack -w",
     "webpack-main": "cd portfolio_app/client && webpack -w",
     "api-serv": "cd ./pages_api && node server.js",
-    "open-edit": "open http://localhost:3000/edit"
+    "open-edit": "open http://localhost:3000/edit",
+    "save": "git add . && git commit -m 'Changes saved' && git push origin master"
   },
   "keywords": [],
   "author": "",

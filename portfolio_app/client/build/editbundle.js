@@ -21412,12 +21412,12 @@
 	        { className: 'edit-nav' },
 	        React.createElement(
 	          'a',
-	          { href: '/' },
-	          'Preview'
+	          { href: '/', className: 'edit-button' },
+	          'View Preview'
 	        ),
 	        React.createElement(
 	          'button',
-	          { onClick: this.loadEditForm },
+	          { onClick: this.loadEditForm, className: 'edit-button' },
 	          'Edit Page'
 	        )
 	      ),
