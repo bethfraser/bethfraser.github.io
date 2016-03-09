@@ -1,69 +1,73 @@
+/* VARIABLES */
+/* MIXINS */
+/* CSS */
 body {
   margin: 0;
-  font-family: "Open Sans";
-}
+  font-family: "Open Sans", sans-serif;
+  padding-top: 65px; }
 
-input, textarea, label {
+input, label, textarea {
   display: block;
   margin: 0 10px 10px 10px;
   padding: 5px;
-  width: 90%;
-}
+  width: 90%; }
 
 label {
   font-family: Tahoma;
-  font-size: 0.8em;
-}
+  font-size: 0.8em; }
 
 form {
   background-color: white;
   width: 90%;
-  margin: 0 auto;
-}
+  margin: 0 auto; }
 
 textarea {
-  height: 200px;
-}
+  height: 200px; }
 
 header {
   background-size: cover;
   height: 100%;
   width: 100%;
-  display: table;
-}
+  display: table; }
 
-.nav {
+h1 {
+  margin: 0; }
+
+button, h3 {
+  margin: 10px; }
+
+.nav-up {
+  top: -66px; }
+
+nav {
   height: 65px;
   line-height: 65px;
   padding: 0 20px;
-  text-transform: uppercase;
-}
-
-.nav ul {
-  float: right;
-  margin: 0;
-  padding: 0;
-}
-
-.nav ul li {
-  padding: 0 10px;
-  margin: 0;
-  display: inline-block;
-}
-
-
-.nav a {
-  text-decoration: none;
-  color: gray;
-}
+  position: fixed;
+  top: 0;
+  transition: top 0.2s ease-in-out;
+  width: 100%;
+  background-color: #fff;
+  border-bottom: 1px solid lightgrey;
+  text-transform: uppercase; }
+  nav ul {
+    float: right;
+    margin: 0;
+    padding: 0 40px 0 0; }
+    nav ul li {
+      padding: 0 20px;
+      margin: 0;
+      display: inline-block; }
+  nav a {
+    text-decoration: none;
+    color: gray; }
 
 .header-div {
   height: 70vh;
   text-align: center;
-  width: 100%;
-}
+  width: 100%; }
 
-.title  {
+.title {
   height: 100%;
   font-family: "Open Sans";
   color: white;
@@ -71,42 +75,39 @@ header {
   padding: 0;
   display: table-cell;
   vertical-align: middle;
-  font-weight: 400 !important;
-}
+  font-weight: 400 !important; }
+  .title h1 {
+    font-weight: 400;
+    display: inline-block;
+    width: 70%; }
 
-.title h1 {
-  font-weight: 400;
-  display: inline-block;
-  width: 70%;
-}
+.body-div p {
+  padding: 20px;
+  line-height: 2em;
+  width: 80%;
+  margin: 0 auto; }
 
-
-.body-div p, .contact-div p, .projects-div ul, .projects-div div {
+.projects-div div {
+  padding: 20px;
+  line-height: 2em;
+  width: 80%;
+  margin: 0 auto; }
+.projects-div ul {
   padding: 20px;
   line-height: 2em;
   width: 80%;
   margin: 0 auto;
-}
-
-.projects-div ul {
-  text-align: center;
-
-}
-
+  text-align: center; }
 .projects-div li {
   width: 30%;
   list-style: none;
   display: inline-block;
   margin: 10px;
-  vertical-align: top;
-}
-
-.projects-div li img {
+  vertical-align: top; }
+.projects-div img {
   max-width: 100%;
   padding: 5px;
-  border: 1px solid lightgrey;
-}
-
+  border: 1px solid lightgrey; }
 .projects-div h2 {
   width: 80%;
   text-align: center;
@@ -114,15 +115,26 @@ header {
   text-transform: uppercase;
   font-weight: 400;
   margin: 0 auto;
-}
+  color: gray; }
+.projects-div h3 {
+  margin-left: 0;
+  margin-top: 0;
+  text-transform: uppercase;
+  font-weight: 400;
+  color: gray; }
+.projects-div p {
+  margin-top: 0; }
 
 .contact-div {
   text-align: center;
-  background-color: #ddeeff;
-}
-.contact-div img {
-  padding: 5px;
-}
+  background-color: #ddeeff; }
+  .contact-div img {
+    padding: 5px; }
+  .contact-div p {
+    padding: 20px;
+    line-height: 2em;
+    width: 80%;
+    margin: 0 auto; }
 
 .form-div {
   display: none;
@@ -132,29 +144,15 @@ header {
   width: 40%;
   background-color: rgba(255, 255, 255, 0.8);
   border-left: 3px solid grey;
-  border-bottom: 3px solid grey;
-}
+  border-bottom: 3px solid grey; }
 
 .edit-nav {
   width: 100%;
   height: 40px;
   background-color: grey;
-  text-align: right;
-}
+  text-align: right; }
+  .edit-nav a {
+    color: white;
+    font-family: Tahoma; }
 
-.edit-nav a {
-  color: white;
-  font-family: Tahoma;
-}
-
-h1 {
-  margin: 0;
-}
-
-button {
-  margin: 10px;
-}
-
-h3 {
-  margin: 10px;
-}
+/*# sourceMappingURL=main.css.map */

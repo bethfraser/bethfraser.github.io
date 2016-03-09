@@ -70,6 +70,7 @@ var EditForm = React.createClass({
     var formDiv = this.refs.formDiv;
     if(formDiv.style.display == "none"){
       formDiv.style.display = "block";
+      formDiv.style.zIndex = "100";
     }
     else {
       formDiv.style.display = "none";
