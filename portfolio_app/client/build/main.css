@@ -64,7 +64,7 @@ nav {
     color: gray; }
 
 .header-div {
-  height: 70vh;
+  height: 80vh;
   text-align: center;
   width: 100%; }
 
@@ -83,18 +83,18 @@ nav {
     width: 70%; }
 
 .body-div p {
-  padding: 20px;
+  padding: 40px 20px 20px 20px;
   line-height: 2em;
   width: 80%;
   margin: 0 auto; }
 
 .projects-div div {
-  padding: 20px;
+  padding: 40px 20px 20px 20px;
   line-height: 2em;
   width: 80%;
   margin: 0 auto; }
 .projects-div ul {
-  padding: 20px;
+  padding: 40px 20px 20px 20px;
   line-height: 2em;
   width: 80%;
   margin: 0 auto;
@@ -132,7 +132,7 @@ nav {
   .contact-div img {
     padding: 5px; }
   .contact-div p {
-    padding: 20px;
+    padding: 40px 20px 20px 20px;
     line-height: 2em;
     width: 80%;
     margin: 0 auto; }
