@@ -71,7 +71,7 @@ nav {
   top: 0;
   transition: top 0.2s ease-in-out;
   width: 100%;
-  background-color: #fff;
+  background: linear-gradient(to top, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.95));
   border-bottom: 1px solid lightgrey;
   text-transform: uppercase;
   z-index: 101;

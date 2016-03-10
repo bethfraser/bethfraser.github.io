@@ -21294,10 +21294,10 @@
 
 	module.exports = [
 		{
-			"id": 1457608047548,
+			"id": 1457616482738,
 			"title": "My name is Beth and I'm a software developer living in Edinburgh.",
 			"body": "**Welcome to my page**! My name's Beth and I'm a student at CodeClan in Edinburgh. This is currently a sample page while I work on a portfolio creator tool I'm making - the contact details at the bottom are real though, so feel free to get in touch!\n<br><br>\nI've been living in Edinburgh for two years, and love the city. I'm originally from Northumberland, just south of the border. I'm currently nearing the end of a 16 week intensive course in software development at CodeClan, Scotland's first digital skills academy.",
-			"headerImage": "https://s3.amazonaws.com/StartupStockPhotos/uploads/42.jpg",
+			"headerImage": "https://s3.amazonaws.com/StartupStockPhotos/uploads/41.jpg",
 			"contactInfo": "Get in touch - email is the easiest, or @ me on Twitter.",
 			"facebookURL": "http://www.facebook.com/",
 			"twitterURL": "http://www.twitter.com/edinbeth",
