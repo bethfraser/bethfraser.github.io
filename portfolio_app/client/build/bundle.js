@@ -21256,7 +21256,6 @@
 
 
 	  render: function render() {
-
 	    return React.createElement(
 	      "nav",
 	      { className: "nav-down" },
@@ -21294,7 +21293,7 @@
 
 	module.exports = [
 		{
-			"id": 1457624981041,
+			"id": 1467207568901,
 			"title": "My name is Beth and I'm a software developer living in Edinburgh.",
 			"body": "**Welcome to my page**! My name's Beth and I'm a student at CodeClan in Edinburgh. This is currently a sample page while I work on a portfolio creator tool I'm making - the contact details at the bottom are real though, so feel free to get in touch!\n<br><br>\nI've been living in Edinburgh for two years, and love the city. I'm originally from Northumberland, just south of the border. I'm currently nearing the end of a 16 week intensive course in software development at CodeClan, Scotland's first digital skills academy.",
 			"headerImage": "https://s3.amazonaws.com/StartupStockPhotos/uploads/41.jpg",
@@ -21313,7 +21312,7 @@
 				},
 				{
 					"image": "http://s7.postimg.org/oalmyqr6z/Screen_Shot_2016_03_08_at_16_24_01.png",
-					"info": "<h3>Project 3 - Portfolio Creator</h3>\n\nIndividual project where we were free to come up with our own concept and choose the technologies that best fit. I worked to create a portfolio site builder for users of GitHub pages\nLearned SASS for easier CSS editing. Used React, Webpack and made my own JavaScript API to deliver and save data."
+					"info": "<h3>Project 3 - Portfolio Creator</h3>\n\nIndividual project where we were free to come up with our own concept and choose the technologies that best fit. I worked to create a portfolio site builder for users of GitHub pages.\nLearned SASS for easier CSS editing. Used React, Webpack and made my own JavaScript API to deliver and save data."
 				}
 			]
 		}

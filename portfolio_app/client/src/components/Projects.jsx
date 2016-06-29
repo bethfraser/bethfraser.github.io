@@ -30,7 +30,6 @@ var Projects = React.createClass({
 
     var projectHTML = marked(this.state.currentInfo.toString(), {sanitize: false});
 
-
     return (
       <div className="projects-div" ref="firstproject">
       <a name="projects"></a>

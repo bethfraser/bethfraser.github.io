@@ -18,8 +18,7 @@ var Page = React.createClass({
   componentDidMount: function(){
     this.fetchComments();
     setInterval(this.fetchComments, 10000);
-
-
+    
     var didScroll;
     var lastScrollTop = 0;
     var delta = 5;
